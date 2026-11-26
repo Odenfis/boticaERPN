@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #f6fbf3;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#003670",
+                        "on-primary-fixed-variant": "#00522d",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "secondary": "#005db7",
+                        "surface-container-highest": "#dfe4dd",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e5e9e2",
+                        "surface-container-low": "#f0f5ee",
+                        "on-primary-fixed": "#00210f",
+                        "on-background": "#181d19",
+                        "surface-variant": "#dfe4dd",
+                        "on-primary-container": "#f6fff4",
+                        "outline-variant": "#becabe",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#edf2eb",
+                        "surface-container": "#ebefe8",
+                        "outline": "#6f7a70",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffd9dc",
+                        "primary-fixed-dim": "#7ed99e",
+                        "primary-fixed": "#9af6b8",
+                        "on-tertiary-container": "#fffbff",
+                        "primary-container": "#268451",
+                        "inverse-surface": "#2d322d",
+                        "on-secondary-fixed": "#001b3d",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3f4941",
+                        "on-tertiary-fixed": "#400010",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#181d19",
+                        "on-secondary-fixed-variant": "#00468c",
+                        "tertiary": "#973f4c",
+                        "surface-bright": "#f6fbf3",
+                        "tertiary-container": "#b55764",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#64a1ff",
+                        "surface-tint": "#006d3d",
+                        "on-tertiary-fixed-variant": "#7c2a38",
+                        "surface-dim": "#d7dbd4",
+                        "primary": "#006a3b",
+                        "secondary-fixed": "#d6e3ff",
+                        "background": "#f6fbf3",
+                        "surface": "#f6fbf3",
+                        "inverse-primary": "#7ed99e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "cell-padding-v": "8px",
+                        "stack-gap": "12px",
+                        "gutter": "16px",
+                        "margin-page": "24px",
+                        "unit": "4px",
+                        "cell-padding-h": "12px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "data-mono": ["Inter"],
+                        "label-bold": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
+                        "display-lg": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "label-bold": ["13px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body-sm text-on-surface bg-background antialiased">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 h-full w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-none font-public-sans text-[13px] tracking-tight leading-none">
+<div class="p-6">
+<h1 class="text-lg font-black tracking-tighter text-emerald-800 dark:text-emerald-200 uppercase">Botica ERP</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-400 mt-1">Pharma Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+                POS
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Inventario
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                Compras
+            </a>
+<!-- Active Tab: Kardex -->
+<a class="flex items-center gap-3 px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border-r-4 border-emerald-600 font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                Kardex
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+                Caja
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+                Reportes
+            </a>
+</nav>
+<div class="px-4 py-4 space-y-4">
+<button class="w-full py-3 bg-emerald-700 text-white font-bold rounded shadow-sm hover:bg-emerald-800 transition-all text-xs uppercase tracking-widest">
+                New Sale (F2)
+            </button>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-900 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Configuración
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Cerrar Sesión
+                </a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-64 h-14 flex items-center justify-between px-6 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm font-public-sans text-xs font-medium uppercase tracking-wider">
+<div class="flex items-center gap-8">
+<div class="relative w-96">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-sm" data-icon="search">search</span>
+<input class="w-full bg-slate-50 border-none rounded-sm pl-10 pr-4 py-2 text-xs focus:ring-1 focus:ring-emerald-500" placeholder="Buscar medicamento o código..." type="text"/>
+</div>
+<nav class="flex gap-6">
+<a class="text-slate-500 hover:text-slate-800" href="#">Ventas</a>
+<a class="text-slate-500 hover:text-slate-800" href="#">Recetas</a>
+<a class="text-slate-500 hover:text-slate-800" href="#">Alertas</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right mr-4">
+<span class="block text-[10px] text-emerald-600 font-bold">Turno: Mañana</span>
+<button class="text-slate-900 font-bold border border-slate-900 px-3 py-1 rounded-sm hover:bg-slate-900 hover:text-white transition-all">Abrir Caja</button>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer" data-icon="help_outline">help_outline</span>
+</div>
+<div class="flex items-center gap-2 border-l pl-4 border-slate-200 ml-2">
+<img alt="Farmacéutico" class="w-8 h-8 rounded-full object-cover border border-slate-200" data-alt="professional portrait of a pharmacist in a clean white laboratory coat with a confident smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvnXxrTBm0LfiUFDN3U2EQ8qPFshO4A_SpWaLbEsNSf9Sl8YLo88Vxaon266rK8iDt7f8QKw1hKq3Xvcj37-D1138EoHgG4QC0z9mGgnwc3brcPVuST_dyujMPIeDnh7YKPk4Msvdh8Eeyx9d2Gi78jt4dt0cYEmzqePuVdbIgHbq6uPD7UIF7-f6DYCZDcm0rcYaf8g_L0E_jwvbJb4OfGr6djHXaHK3lAXnsZONU9WQnZJguoemgoJpyegf4aKnIPtX7eqxfFjY"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 mt-14 p-6 min-h-screen">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-6">
+<div>
+<nav class="flex items-center gap-2 text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1">
+<a href="#">Inventario</a>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<span>Kardex Detallado</span>
+</nav>
+<h2 class="font-display-lg text-display-lg text-slate-900 flex items-center gap-3">
+                    Kardex de Producto
+                    <span class="bg-emerald-100 text-emerald-700 text-[12px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">SKU: 75010023</span>
+</h2>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 border border-slate-200 px-4 py-2 rounded text-slate-700 bg-white hover:bg-slate-50 transition-all font-label-bold text-label-bold">
+<span class="material-symbols-outlined text-lg" data-icon="print">print</span>
+                    Imprimir
+                </button>
+<button class="flex items-center gap-2 border border-slate-200 px-4 py-2 rounded text-slate-700 bg-white hover:bg-slate-50 transition-all font-label-bold text-label-bold">
+<span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+                    Exportar PDF
+                </button>
+<button class="flex items-center gap-2 bg-emerald-700 px-4 py-2 rounded text-white hover:bg-emerald-800 transition-all font-label-bold text-label-bold">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+                    Ajuste Manual
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Product Info & Stats -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-stack-gap">
+<!-- Product Data Sheet Card -->
+<div class="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm">
+<div class="p-5 border-b border-slate-100 bg-slate-50/50">
+<h3 class="font-label-bold text-label-bold text-slate-900 uppercase tracking-wider">Especificaciones Técnicas</h3>
+</div>
+<div class="p-5 space-y-4">
+<div>
+<label class="block text-[10px] text-slate-500 uppercase font-bold tracking-tighter mb-1">Nombre Comercial</label>
+<p class="text-body-lg font-bold text-emerald-800 uppercase">Amoxicilina + Ácido Clavulánico</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] text-slate-500 uppercase font-bold tracking-tighter mb-1">Concentración</label>
+<p class="text-body-sm font-semibold">875mg / 125mg</p>
+</div>
+<div>
+<label class="block text-[10px] text-slate-500 uppercase font-bold tracking-tighter mb-1">Presentación</label>
+<p class="text-body-sm font-semibold">Caja x 14 Tabletas</p>
+</div>
+</div>
+<div>
+<label class="block text-[10px] text-slate-500 uppercase font-bold tracking-tighter mb-1">Laboratorio Fabricante</label>
+<p class="text-body-sm font-semibold">GlaxoSmithKline (GSK)</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] text-slate-500 uppercase font-bold tracking-tighter mb-1">Registro Sanitario</label>
+<p class="text-data-mono font-medium text-slate-600">EN-04322-S2</p>
+</div>
+<div>
+<label class="block text-[10px] text-slate-500 uppercase font-bold tracking-tighter mb-1">Condición Venta</label>
+<span class="inline-block bg-tertiary-fixed text-on-tertiary-fixed-variant text-[11px] px-2 py-0.5 rounded font-bold uppercase">Receta Médica</span>
+</div>
+</div>
+</div>
+<div class="bg-emerald-50 px-5 py-4 border-t border-emerald-100">
+<div class="flex justify-between items-center">
+<span class="text-body-sm font-medium text-emerald-800">Stock Actual</span>
+<span class="text-display-lg font-black text-emerald-900">423 <small class="text-sm font-normal">und</small></span>
+</div>
+</div>
+</div>
+<!-- Mini Rotation Graph -->
+<div class="bg-white border border-slate-200 rounded-lg p-5 shadow-sm">
+<h3 class="font-label-bold text-label-bold text-slate-900 uppercase tracking-wider mb-4">Rotación Mensual</h3>
+<div class="flex items-end justify-between h-32 gap-2 mt-4">
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-slate-100 rounded-t-sm h-12 hover:bg-emerald-200 transition-all"></div>
+<span class="text-[9px] font-bold text-slate-400">MAY</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-slate-100 rounded-t-sm h-16 hover:bg-emerald-200 transition-all"></div>
+<span class="text-[9px] font-bold text-slate-400">JUN</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-slate-100 rounded-t-sm h-24 hover:bg-emerald-200 transition-all"></div>
+<span class="text-[9px] font-bold text-slate-400">JUL</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-emerald-600 rounded-t-sm h-28"></div>
+<span class="text-[9px] font-bold text-emerald-700">AGO</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-slate-100 rounded-t-sm h-20 hover:bg-emerald-200 transition-all"></div>
+<span class="text-[9px] font-bold text-slate-400">SEP</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-100 flex justify-between">
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Promedio</p>
+<p class="font-data-mono font-bold">124.5 u/mes</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Estado</p>
+<p class="font-data-mono font-bold text-emerald-600">Alta Rotación</p>
+</div>
+</div>
+</div>
+<!-- Storage Info -->
+<div class="bg-white border border-slate-200 rounded-lg p-5 shadow-sm">
+<h3 class="font-label-bold text-label-bold text-slate-900 uppercase tracking-wider mb-3">Ubicación y Almacén</h3>
+<div class="space-y-3">
+<div class="flex justify-between">
+<span class="text-body-sm text-slate-500">Pasillo</span>
+<span class="text-body-sm font-bold">B - Antibióticos</span>
+</div>
+<div class="flex justify-between">
+<span class="text-body-sm text-slate-500">Estante / Nivel</span>
+<span class="text-body-sm font-bold">04 / C</span>
+</div>
+<div class="flex justify-between">
+<span class="text-body-sm text-slate-500">Temperatura</span>
+<span class="text-body-sm font-bold">15°C - 25°C</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Movements History Table -->
+<div class="col-span-12 lg:col-span-8 flex flex-col">
+<div class="bg-white border border-slate-200 rounded-lg shadow-sm flex-1 flex flex-col">
+<div class="p-5 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<h3 class="font-label-bold text-label-bold text-slate-900 uppercase tracking-wider">Historial de Movimientos</h3>
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-sm" data-icon="calendar_month">calendar_month</span>
+<input class="bg-slate-50 border border-slate-200 rounded-sm pl-9 pr-4 py-1.5 text-[12px] font-medium w-56" type="text" value="01/08/2023 - 31/08/2023"/>
+</div>
+<button class="bg-slate-100 p-1.5 rounded hover:bg-slate-200 transition-all">
+<span class="material-symbols-outlined text-slate-600" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 border-b border-slate-200 text-[10px] uppercase font-black text-slate-500 tracking-widest">
+<th class="px-cell-padding-h py-3">Fecha y Hora</th>
+<th class="px-cell-padding-h py-3">Tipo Mov.</th>
+<th class="px-cell-padding-h py-3">Documento Ref.</th>
+<th class="px-cell-padding-h py-3 text-right">Entrada</th>
+<th class="px-cell-padding-h py-3 text-right">Salida</th>
+<th class="px-cell-padding-h py-3 text-right">Saldo</th>
+<th class="px-cell-padding-h py-3">Responsable</th>
+</tr>
+</thead>
+<tbody class="text-body-sm font-data-mono">
+<!-- Movement 1 -->
+<tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-3 text-slate-500">28/08/2023 14:22</td>
+<td class="px-cell-padding-h py-3">
+<span class="flex items-center gap-1.5 text-secondary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_bag">shopping_bag</span>
+                                            Venta
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-3 text-slate-600">BOL-E001-4501</td>
+<td class="px-cell-padding-h py-3 text-right text-slate-300">-</td>
+<td class="px-cell-padding-h py-3 text-right text-error font-bold">14</td>
+<td class="px-cell-padding-h py-3 text-right font-bold text-slate-900">423</td>
+<td class="px-cell-padding-h py-3 text-[11px] text-slate-500 uppercase">Cajero_02</td>
+</tr>
+<!-- Movement 2 -->
+<tr class="border-b border-slate-100 bg-slate-50/30 hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-3 text-slate-500">28/08/2023 11:05</td>
+<td class="px-cell-padding-h py-3">
+<span class="flex items-center gap-1.5 text-secondary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_bag">shopping_bag</span>
+                                            Venta
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-3 text-slate-600">FAC-E001-982</td>
+<td class="px-cell-padding-h py-3 text-right text-slate-300">-</td>
+<td class="px-cell-padding-h py-3 text-right text-error font-bold">28</td>
+<td class="px-cell-padding-h py-3 text-right font-bold text-slate-900">437</td>
+<td class="px-cell-padding-h py-3 text-[11px] text-slate-500 uppercase">Cajero_01</td>
+</tr>
+<!-- Movement 3 (Adjustment) -->
+<tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-3 text-slate-500">27/08/2023 09:30</td>
+<td class="px-cell-padding-h py-3">
+<span class="flex items-center gap-1.5 text-tertiary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="build">build</span>
+                                            Ajuste
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-3 text-slate-600">AJU-00045</td>
+<td class="px-cell-padding-h py-3 text-right text-slate-300">-</td>
+<td class="px-cell-padding-h py-3 text-right text-error font-bold">2</td>
+<td class="px-cell-padding-h py-3 text-right font-bold text-slate-900">465</td>
+<td class="px-cell-padding-h py-3 text-[11px] text-slate-500 uppercase">Admin_Pharma</td>
+</tr>
+<!-- Movement 4 (Input/Purchase) -->
+<tr class="border-b border-slate-100 bg-slate-50/30 hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-3 text-slate-500">26/08/2023 16:45</td>
+<td class="px-cell-padding-h py-3">
+<span class="flex items-center gap-1.5 text-primary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="local_shipping">local_shipping</span>
+                                            Compra
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-3 text-slate-600">GUI-F020-112</td>
+<td class="px-cell-padding-h py-3 text-right text-primary font-bold">500</td>
+<td class="px-cell-padding-h py-3 text-right text-slate-300">-</td>
+<td class="px-cell-padding-h py-3 text-right font-bold text-slate-900">467</td>
+<td class="px-cell-padding-h py-3 text-[11px] text-slate-500 uppercase">Logistica_V</td>
+</tr>
+<!-- Movement 5 -->
+<tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-3 text-slate-500">25/08/2023 18:10</td>
+<td class="px-cell-padding-h py-3">
+<span class="flex items-center gap-1.5 text-secondary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_bag">shopping_bag</span>
+                                            Venta
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-3 text-slate-600">BOL-E001-4480</td>
+<td class="px-cell-padding-h py-3 text-right text-slate-300">-</td>
+<td class="px-cell-padding-h py-3 text-right text-error font-bold">7</td>
+<td class="px-cell-padding-h py-3 text-right font-bold text-slate-900">167</td>
+<td class="px-cell-padding-h py-3 text-[11px] text-slate-500 uppercase">Cajero_01</td>
+</tr>
+<!-- Movement 6 -->
+<tr class="border-b border-slate-100 bg-slate-50/30 hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-3 text-slate-500">25/08/2023 12:40</td>
+<td class="px-cell-padding-h py-3">
+<span class="flex items-center gap-1.5 text-secondary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_bag">shopping_bag</span>
+                                            Venta
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-3 text-slate-600">BOL-E001-4475</td>
+<td class="px-cell-padding-h py-3 text-right text-slate-300">-</td>
+<td class="px-cell-padding-h py-3 text-right text-error font-bold">14</td>
+<td class="px-cell-padding-h py-3 text-right font-bold text-slate-900">174</td>
+<td class="px-cell-padding-h py-3 text-[11px] text-slate-500 uppercase">Cajero_02</td>
+</tr>
+<!-- Movement 7 -->
+<tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-3 text-slate-500">24/08/2023 10:20</td>
+<td class="px-cell-padding-h py-3">
+<span class="flex items-center gap-1.5 text-secondary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_bag">shopping_bag</span>
+                                            Venta
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-3 text-slate-600">BOL-E001-4450</td>
+<td class="px-cell-padding-h py-3 text-right text-slate-300">-</td>
+<td class="px-cell-padding-h py-3 text-right text-error font-bold">28</td>
+<td class="px-cell-padding-h py-3 text-right font-bold text-slate-900">188</td>
+<td class="px-cell-padding-h py-3 text-[11px] text-slate-500 uppercase">Cajero_01</td>
+</tr>
+<!-- Movement 8 -->
+<tr class="border-b border-slate-100 bg-slate-50/30 hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-3 text-slate-500">23/08/2023 15:55</td>
+<td class="px-cell-padding-h py-3">
+<span class="flex items-center gap-1.5 text-secondary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_bag">shopping_bag</span>
+                                            Venta
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-3 text-slate-600">BOL-E001-4442</td>
+<td class="px-cell-padding-h py-3 text-right text-slate-300">-</td>
+<td class="px-cell-padding-h py-3 text-right text-error font-bold">14</td>
+<td class="px-cell-padding-h py-3 text-right font-bold text-slate-900">216</td>
+<td class="px-cell-padding-h py-3 text-[11px] text-slate-500 uppercase">Cajero_01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-between items-center">
+<span class="text-[11px] text-slate-500 font-medium">Mostrando 1-8 de 142 movimientos</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded text-slate-400 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded bg-emerald-600 text-white font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded text-slate-600 font-bold text-xs hover:bg-slate-100">2</button>
+<button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded text-slate-600 font-bold text-xs hover:bg-slate-100">3</button>
+<button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded text-slate-600">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Toast Notification (Low stock alert example) -->
+<div class="fixed top-20 right-6 z-50 animate-in fade-in slide-in-from-right-10">
+<div class="bg-surface-container-high border-l-4 border-error p-4 shadow-lg rounded flex gap-4 max-w-sm">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<div>
+<p class="text-label-bold font-label-bold text-slate-900">Alerta de Lote Próximo a Vencer</p>
+<p class="text-[12px] text-slate-600 mt-1">El lote L-8842 (85 und) vence en menos de 30 días (15/09/2023).</p>
+</div>
+<button class="text-slate-400 hover:text-slate-600">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</body></html>

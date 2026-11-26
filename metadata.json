@@ -1,0 +1,6 @@
+{
+  "name": "Botica ERP — Fase 1",
+  "description": "Sistema ERP operativo para botica peruana con POS FEFO, inventario por lotes, compras, Kardex, arqueo de caja, reportes PDF/Excel y SQL Server.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

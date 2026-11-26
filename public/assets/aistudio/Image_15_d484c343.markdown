@@ -1,0 +1,167 @@
+---
+name: Pharmacy ERP System
+colors:
+  surface: '#f6fbf3'
+  surface-dim: '#d7dbd4'
+  surface-bright: '#f6fbf3'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#f0f5ee'
+  surface-container: '#ebefe8'
+  surface-container-high: '#e5e9e2'
+  surface-container-highest: '#dfe4dd'
+  on-surface: '#181d19'
+  on-surface-variant: '#3f4941'
+  inverse-surface: '#2d322d'
+  inverse-on-surface: '#edf2eb'
+  outline: '#6f7a70'
+  outline-variant: '#becabe'
+  surface-tint: '#006d3d'
+  primary: '#006a3b'
+  on-primary: '#ffffff'
+  primary-container: '#268451'
+  on-primary-container: '#f6fff4'
+  inverse-primary: '#7ed99e'
+  secondary: '#005db7'
+  on-secondary: '#ffffff'
+  secondary-container: '#64a1ff'
+  on-secondary-container: '#003670'
+  tertiary: '#973f4c'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#b55764'
+  on-tertiary-container: '#fffbff'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#9af6b8'
+  primary-fixed-dim: '#7ed99e'
+  on-primary-fixed: '#00210f'
+  on-primary-fixed-variant: '#00522d'
+  secondary-fixed: '#d6e3ff'
+  secondary-fixed-dim: '#a9c7ff'
+  on-secondary-fixed: '#001b3d'
+  on-secondary-fixed-variant: '#00468c'
+  tertiary-fixed: '#ffd9dc'
+  tertiary-fixed-dim: '#ffb2b9'
+  on-tertiary-fixed: '#400010'
+  on-tertiary-fixed-variant: '#7c2a38'
+  background: '#f6fbf3'
+  on-background: '#181d19'
+  surface-variant: '#dfe4dd'
+typography:
+  display-lg:
+    fontFamily: Public Sans
+    fontSize: 30px
+    fontWeight: '600'
+    lineHeight: 38px
+  headline-md:
+    fontFamily: Public Sans
+    fontSize: 20px
+    fontWeight: '600'
+    lineHeight: 28px
+  body-lg:
+    fontFamily: Public Sans
+    fontSize: 16px
+    fontWeight: '400'
+    lineHeight: 24px
+  body-sm:
+    fontFamily: Public Sans
+    fontSize: 14px
+    fontWeight: '400'
+    lineHeight: 20px
+  data-mono:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: '500'
+    lineHeight: 20px
+    letterSpacing: -0.01em
+  label-bold:
+    fontFamily: Public Sans
+    fontSize: 13px
+    fontWeight: '600'
+    lineHeight: 16px
+rounded:
+  sm: 0.125rem
+  DEFAULT: 0.25rem
+  md: 0.375rem
+  lg: 0.5rem
+  xl: 0.75rem
+  full: 9999px
+spacing:
+  unit: 4px
+  gutter: 16px
+  margin-page: 24px
+  cell-padding-v: 8px
+  cell-padding-h: 12px
+  stack-gap: 12px
+---
+
+## Brand & Style
+
+This design system is engineered for high-velocity pharmaceutical environments where accuracy and information density are paramount. The brand personality is **authoritative, clinical, and efficient**, mirroring the reliability required in medical software. 
+
+The aesthetic follows a **Corporate / Modern** approach with a specific emphasis on **Desktop Utility**. It bridges the gap between classic ERP software and modern web standards by utilizing a structured layout that prioritizes data visibility over decorative whitespace. Visual flair is reserved for functional feedback (status indicators and alerts), ensuring that the pharmacist’s focus remains on inventory management and patient safety.
+
+## Colors
+
+The palette is anchored in **Health Green** and **Trust Blue** to evoke a sense of medical professionalism and security. 
+
+- **Primary Health Green (#2E8B57):** Used for primary actions, successful stock confirmations, and "In Stock" indicators.
+- **Secondary Trust Blue (#1565C0):** Dedicated to navigation, informational callouts, and secondary system actions.
+- **Status Triage:** A strict color-coding system for inventory:
+    - **Green:** Healthy stock / Long expiry.
+    - **Yellow/Orange (#F57C00):** Low stock / Approaching expiry (within 3 months).
+    - **Red (#D32F2F):** Out of stock / Expired.
+- **Neutrals:** A range of cool grays are used to create the "Desktop" feel, providing subtle contrast between sidebar menus, table headers, and workspace backgrounds.
+
+## Typography
+
+This design system utilizes **Public Sans** for its exceptional legibility and institutional feel. The scale is optimized for high-density screens where users need to scan long lists of medication names and SKU numbers.
+
+- **Base Size:** The standard body text is set to 15px-16px to maintain readability during long shifts.
+- **Numeric Data:** For SKU numbers, quantities, and prices, the system uses a slightly tighter tracking to ensure column alignment in dense tables.
+- **Hierarchy:** Clear distinction is made between labels and values. Labels use a smaller, bold, uppercase style to act as "signposts" without competing with the actual data.
+
+## Layout & Spacing
+
+The layout utilizes a **Fluid Grid** system that maximizes the use of horizontal screen real estate, common in pharmacy workstations.
+
+- **Information Density:** Spacing is tight (8px/12px increments) to minimize scrolling. 
+- **Grid Structure:** A 12-column system is used for dashboard layouts, but individual modules (like the Point of Sale or Inventory Edit) use a "Sidebar-Detail" split.
+- **Table Density:** Row heights are kept to a minimum (standard 40-48px) to allow as many line items as possible to be visible above the fold.
+
+## Elevation & Depth
+
+To maintain a professional, systematic feel, the design system avoids excessive layering. Depth is communicated via **Tonal Layers** and **Low-Contrast Outlines**.
+
+- **Surface Levels:** The main workspace is the lowest level (Neutral Base). Content is housed in white "cards" with a subtle 1px border (#E0E0E0).
+- **Shadows:** Use extremely soft, diffuse shadows (0px 4px 12px rgba(0,0,0,0.05)) only for active modal dialogs or floating action menus.
+- **Interactive States:** Hovering over a table row or a list item should trigger a subtle background tint change rather than an elevation lift, maintaining the "flat" desktop software efficiency.
+
+## Shapes
+
+The shape language is **Soft (0.25rem)**. This slight rounding provides a modern touch while retaining the structured, space-efficient qualities of sharp-edged desktop software.
+
+- **Components:** Buttons, input fields, and checkboxes use the base 4px radius. 
+- **Large Containers:** Main content areas or modal windows may use the `rounded-lg` (8px) variant to distinguish them from smaller UI elements.
+- **Status Indicators:** Use "Pill" shapes for inventory status tags to make them instantly recognizable against the rectangular grid of the tables.
+
+## Components
+
+### Tables (Data Grids)
+The core of the ERP. Tables must feature sticky headers, zebra-striping (subtle gray/white), and condensed cell padding. Sorting and filtering icons are always visible to aid navigation.
+
+### Large Labeled Buttons
+For critical actions like "Complete Sale" or "Add New Batch," buttons are large with high-contrast text. Secondary buttons use an outlined style to prevent visual clutter.
+
+### Status Indicators (Pills)
+Status tags use a "Light Background + Dark Text" formula for color-coding. For example, a "Low Stock" pill uses a light orange background with the Warning Orange text to ensure readability while maintaining the color signal.
+
+### Input Fields
+Inputs use a "Fixed Label" approach where the label sits clearly above the field, not as a placeholder. This ensures that users don't lose context while filling out complex drug monographs.
+
+### Notification Toasts
+Standardized alerts for "Low Stock Threshold Reached" or "Prescription Verified." These appear in the top-right corner, utilizing the primary or warning colors to signal urgency.
+
+### Search Bar
+A prominent, full-width search bar with an integrated "Category Filter" is required at the top of all inventory views for rapid SKU lookups.

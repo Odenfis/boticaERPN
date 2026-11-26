@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#003670",
+                        "on-primary-fixed-variant": "#00522d",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "secondary": "#005db7",
+                        "surface-container-highest": "#dfe4dd",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e5e9e2",
+                        "surface-container-low": "#f0f5ee",
+                        "on-primary-fixed": "#00210f",
+                        "on-background": "#181d19",
+                        "surface-variant": "#dfe4dd",
+                        "on-primary-container": "#f6fff4",
+                        "outline-variant": "#becabe",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#edf2eb",
+                        "surface-container": "#ebefe8",
+                        "outline": "#6f7a70",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffd9dc",
+                        "primary-fixed-dim": "#7ed99e",
+                        "primary-fixed": "#9af6b8",
+                        "on-tertiary-container": "#fffbff",
+                        "primary-container": "#268451",
+                        "inverse-surface": "#2d322d",
+                        "on-secondary-fixed": "#001b3d",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3f4941",
+                        "on-tertiary-fixed": "#400010",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#181d19",
+                        "on-secondary-fixed-variant": "#00468c",
+                        "tertiary": "#973f4c",
+                        "surface-bright": "#f6fbf3",
+                        "surface-dim": "#d7dbd4",
+                        "primary": "#006a3b",
+                        "secondary-fixed": "#d6e3ff",
+                        "background": "#f6fbf3",
+                        "surface": "#f6fbf3",
+                        "inverse-primary": "#7ed99e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "cell-padding-v": "8px",
+                        "stack-gap": "12px",
+                        "gutter": "16px",
+                        "margin-page": "24px",
+                        "unit": "4px",
+                        "cell-padding-h": "12px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "data-mono": ["Inter"],
+                        "label-bold": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
+                        "display-lg": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "label-bold": ["13px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #becabe; border-radius: 10px; }
+        .glass-effect { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-sm min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 docked h-full w-64 border-r border-slate-200 bg-white">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">medical_services</span>
+</div>
+<div>
+<h1 class="text-lg font-black tracking-tighter text-emerald-800">Botica ERP</h1>
+<p class="font-public-sans text-[11px] uppercase tracking-widest text-slate-400">Pharma Management</p>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-public-sans text-[13px] tracking-tight leading-none">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="point_of_sale">point_of_sale</span>
+<span class="font-public-sans text-[13px] tracking-tight leading-none">POS</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="inventory_2">inventory_2</span>
+<span class="font-public-sans text-[13px] tracking-tight leading-none">Inventario</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-public-sans text-[13px] tracking-tight leading-none">Compras</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="history_edu">history_edu</span>
+<span class="font-public-sans text-[13px] tracking-tight leading-none">Kardex</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-public-sans text-[13px] tracking-tight leading-none">Caja</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 bg-emerald-50 text-emerald-700 border-r-4 border-emerald-600 font-semibold" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="assessment" style="font-variation-settings: 'FILL' 1;">assessment</span>
+<span class="font-public-sans text-[13px] tracking-tight leading-none">Reportes</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-slate-100 p-4">
+<button class="w-full bg-primary text-white py-2.5 rounded flex items-center justify-center gap-2 font-label-bold text-xs uppercase tracking-wide active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+                New Sale (F2)
+            </button>
+<div class="mt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-public-sans text-[13px] tracking-tight leading-none">Configuración</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="logout">logout</span>
+<span class="font-public-sans text-[13px] tracking-tight leading-none">Cerrar Sesión</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-64 h-14 bg-white border-b border-slate-200 flex items-center justify-between px-6 z-30">
+<div class="flex items-center gap-6">
+<div class="flex items-center bg-slate-50 px-3 py-1.5 rounded border border-slate-100">
+<span class="material-symbols-outlined text-slate-400 mr-2 text-lg">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs w-64 text-slate-600" placeholder="Buscar reportes o transacciones..." type="text"/>
+</div>
+<nav class="flex gap-6">
+<a class="font-public-sans text-xs font-medium uppercase tracking-wider text-emerald-600 border-b-2 border-emerald-600 pb-2" href="#">Ventas</a>
+<a class="font-public-sans text-xs font-medium uppercase tracking-wider text-slate-500 hover:text-slate-800 pb-2" href="#">Recetas</a>
+<a class="font-public-sans text-xs font-medium uppercase tracking-wider text-slate-500 hover:text-slate-800 pb-2" href="#">Alertas</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-end mr-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Turno: Mañana</span>
+<button class="text-emerald-700 font-label-bold text-[11px] uppercase hover:underline">Abrir Caja</button>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden border border-slate-200">
+<img alt="Farmacéutico de Turno" class="h-full w-full object-cover" data-alt="professional male pharmacist with glasses and white lab coat in a clean pharmacy setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkZpN_Crd2VTZw9XlaGAiY0HEjfOzyzNmt3Lu4fWbPEddb9diFg_NgxsL-Rsewj5kG8HYOwGsk2oz61IOY_112XGfOE0FoqisjG9zwMZM_BcjENwdKE1YrWJnf4oUjJ3KdYmWiRkJeu7E_SEWrP9Zir48uZ2a0JLiQTklWO8mj3dKqha87OyM8M7jt7yE7rRxXk-1kyT4-_29tFJGo_MWG-UnK7sKAVrWGd8o-7-BhZRMJOfIXMwBVstoraz3AyAs1mbTh15ZW6go"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="ml-64 pt-14 p-6 bg-[#F8FAFC]">
+<!-- Page Header & Filters -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+<div>
+<h2 class="font-display-lg text-on-surface mb-1">Panel de Reportes</h2>
+<p class="text-body-sm text-outline">Análisis de rendimiento, ventas e inventario en tiempo real.</p>
+</div>
+<div class="flex items-center gap-3 bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+<div class="flex flex-col px-3 border-r border-slate-100">
+<label class="text-[10px] font-bold text-slate-400 uppercase mb-0.5">Periodo</label>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-emerald-600">calendar_month</span>
+<input class="text-xs font-semibold border-none p-0 focus:ring-0 w-40 text-on-surface" type="text" value="01 Oct 2023 - 31 Oct 2023"/>
+</div>
+</div>
+<div class="flex items-center gap-2 pl-2">
+<button class="flex items-center gap-2 px-3 py-2 bg-slate-50 text-on-surface text-xs font-semibold rounded hover:bg-slate-100 transition-colors border border-slate-200">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
+                        PDF
+                    </button>
+<button class="flex items-center gap-2 px-3 py-2 bg-emerald-600 text-white text-xs font-semibold rounded hover:bg-emerald-700 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">description</span>
+                        Excel
+                    </button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-12 gap-5 mb-6">
+<!-- Main Chart: Sales Over Time -->
+<div class="col-span-12 lg:col-span-8 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h3 class="font-headline-md text-on-surface">Ventas por Periodo</h3>
+<p class="text-xs text-outline">Comparativa de ingresos brutos vs. proyecciones</p>
+</div>
+<select class="text-xs font-semibold bg-slate-50 border-slate-200 rounded px-2 py-1 focus:ring-emerald-500">
+<option>Vista Diaria</option>
+<option selected="">Vista Semanal</option>
+<option>Vista Mensual</option>
+</select>
+</div>
+<div class="h-64 flex items-end justify-between gap-2 px-4 relative">
+<!-- Faux Chart Bars -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-emerald-100 rounded-t-sm h-32 relative group">
+<div class="absolute inset-x-0 bottom-0 bg-emerald-600 h-2/3 rounded-t-sm transition-all group-hover:brightness-110"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">LUN</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-emerald-100 rounded-t-sm h-40 relative group">
+<div class="absolute inset-x-0 bottom-0 bg-emerald-600 h-3/4 rounded-t-sm transition-all group-hover:brightness-110"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">MAR</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-emerald-100 rounded-t-sm h-48 relative group">
+<div class="absolute inset-x-0 bottom-0 bg-emerald-600 h-5/6 rounded-t-sm transition-all group-hover:brightness-110"></div>
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$4,250.00</div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">MIE</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-emerald-100 rounded-t-sm h-36 relative group">
+<div class="absolute inset-x-0 bottom-0 bg-emerald-600 h-1/2 rounded-t-sm transition-all group-hover:brightness-110"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">JUE</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-emerald-100 rounded-t-sm h-52 relative group">
+<div class="absolute inset-x-0 bottom-0 bg-emerald-600 h-full rounded-t-sm transition-all group-hover:brightness-110"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">VIE</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-emerald-100 rounded-t-sm h-44 relative group">
+<div class="absolute inset-x-0 bottom-0 bg-emerald-600 h-4/5 rounded-t-sm transition-all group-hover:brightness-110"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">SAB</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-emerald-100 rounded-t-sm h-28 relative group">
+<div class="absolute inset-x-0 bottom-0 bg-emerald-600 h-1/3 rounded-t-sm transition-all group-hover:brightness-110"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">DOM</span>
+</div>
+</div>
+</div>
+<!-- Top Selling Sidebar -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-5">
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex-1">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-label-bold text-on-surface">Top Productos</h3>
+<span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Este Mes</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-slate-50 flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-slate-400">pill</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface truncate">Paracetamol 500mg</p>
+<p class="text-[10px] text-outline uppercase">Genérico • 452 Unidades</p>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-emerald-700">S/ 1,240</p>
+<div class="w-16 bg-slate-100 h-1 rounded-full mt-1">
+<div class="bg-emerald-500 h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-slate-50 flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-slate-400">vaccines</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface truncate">Amoxicilina Susp.</p>
+<p class="text-[10px] text-outline uppercase">Antibiótico • 215 Unidades</p>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-emerald-700">S/ 2,890</p>
+<div class="w-16 bg-slate-100 h-1 rounded-full mt-1">
+<div class="bg-emerald-500 h-full w-[65%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-slate-50 flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-slate-400">medication</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface truncate">Ibuprofeno 400mg</p>
+<p class="text-[10px] text-outline uppercase">Analgésico • 188 Unidades</p>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-emerald-700">S/ 945</p>
+<div class="w-16 bg-slate-100 h-1 rounded-full mt-1">
+<div class="bg-emerald-500 h-full w-[45%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-[11px] font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded transition-colors uppercase tracking-wider">Ver Inventario Completo</button>
+</div>
+</div>
+</div>
+<!-- Detailed Table Section -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+<div class="flex items-center gap-4">
+<h3 class="font-label-bold text-on-surface">Ventas por Vendedor</h3>
+<div class="flex border border-slate-200 rounded bg-white overflow-hidden">
+<button class="px-3 py-1 text-[10px] font-bold bg-emerald-600 text-white">HOY</button>
+<button class="px-3 py-1 text-[10px] font-bold text-slate-500 hover:bg-slate-50 border-l border-slate-200">HISTÓRICO</button>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-1.5 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-all">
+<span class="material-symbols-outlined text-lg">filter_alt</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-all">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-slate-50/80 sticky top-0">
+<tr>
+<th class="px-6 py-3 text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100">Vendedor</th>
+<th class="px-6 py-3 text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 text-center">Transacciones</th>
+<th class="px-6 py-3 text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 text-center">Ticket Promedio</th>
+<th class="px-6 py-3 text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 text-right">Total Ventas</th>
+<th class="px-6 py-3 text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 text-right">Comisión</th>
+<th class="px-6 py-3 text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100">Estado</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-xs">AC</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Ana Contreras</p>
+<p class="text-[10px] text-outline">Farmacéutica Titular</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center font-data-mono text-xs text-on-surface">142</td>
+<td class="px-6 py-4 text-center font-data-mono text-xs text-on-surface">S/ 42.50</td>
+<td class="px-6 py-4 text-right font-data-mono text-xs font-bold text-on-surface">S/ 6,035.00</td>
+<td class="px-6 py-4 text-right font-data-mono text-xs text-emerald-600">S/ 181.05</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded-full uppercase tracking-tighter">Meta Lograda</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim text-on-primary-fixed-variant flex items-center justify-center font-bold text-xs">JP</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Jorge Pérez</p>
+<p class="text-[10px] text-outline">Asistente Técnico</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center font-data-mono text-xs text-on-surface">98</td>
+<td class="px-6 py-4 text-center font-data-mono text-xs text-on-surface">S/ 38.20</td>
+<td class="px-6 py-4 text-right font-data-mono text-xs font-bold text-on-surface">S/ 3,743.60</td>
+<td class="px-6 py-4 text-right font-data-mono text-xs text-emerald-600">S/ 112.30</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold rounded-full uppercase tracking-tighter">En Progreso</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold text-xs">ML</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Marta Luna</p>
+<p class="text-[10px] text-outline">Practicante</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center font-data-mono text-xs text-on-surface">45</td>
+<td class="px-6 py-4 text-center font-data-mono text-xs text-on-surface">S/ 21.10</td>
+<td class="px-6 py-4 text-right font-data-mono text-xs font-bold text-on-surface">S/ 949.50</td>
+<td class="px-6 py-4 text-right font-data-mono text-xs text-emerald-600">S/ 28.48</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-surface-container-highest text-slate-500 text-[10px] font-bold rounded-full uppercase tracking-tighter">Bajo Meta</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-slate-50 flex items-center justify-between border-t border-slate-100">
+<span class="text-[11px] text-outline">Mostrando 3 de 12 vendedores</span>
+<div class="flex gap-1">
+<button class="p-1 border border-slate-200 bg-white rounded hover:bg-slate-50 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="p-1 border border-slate-200 bg-white rounded hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

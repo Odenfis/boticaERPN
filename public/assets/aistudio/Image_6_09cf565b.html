@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#003670",
+                      "on-primary-fixed-variant": "#00522d",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#a9c7ff",
+                      "secondary": "#005db7",
+                      "surface-container-highest": "#dfe4dd",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e5e9e2",
+                      "surface-container-low": "#f0f5ee",
+                      "on-primary-fixed": "#00210f",
+                      "on-background": "#181d19",
+                      "surface-variant": "#dfe4dd",
+                      "on-primary-container": "#f6fff4",
+                      "outline-variant": "#becabe",
+                      "on-tertiary": "#ffffff",
+                      "inverse-on-surface": "#edf2eb",
+                      "surface-container": "#ebefe8",
+                      "outline": "#6f7a70",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffd9dc",
+                      "primary-fixed-dim": "#7ed99e",
+                      "primary-fixed": "#9af6b8",
+                      "on-tertiary-container": "#fffbff",
+                      "primary-container": "#268451",
+                      "inverse-surface": "#2d322d",
+                      "on-secondary-fixed": "#001b3d",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#3f4941",
+                      "on-tertiary-fixed": "#400010",
+                      "tertiary-fixed-dim": "#ffb2b9",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#181d19",
+                      "on-secondary-fixed-variant": "#00468c",
+                      "tertiary": "#973f4c",
+                      "surface-bright": "#f6fbf3",
+                      "tertiary-container": "#b55764",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#64a1ff",
+                      "surface-tint": "#006d3d",
+                      "on-tertiary-fixed-variant": "#7c2a38",
+                      "surface-dim": "#d7dbd4",
+                      "primary": "#006a3b",
+                      "secondary-fixed": "#d6e3ff",
+                      "background": "#f6fbf3",
+                      "surface": "#f6fbf3",
+                      "inverse-primary": "#7ed99e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "cell-padding-v": "8px",
+                      "stack-gap": "12px",
+                      "gutter": "16px",
+                      "margin-page": "24px",
+                      "unit": "4px",
+                      "cell-padding-h": "12px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Public Sans"],
+                      "body-lg": ["Public Sans"],
+                      "data-mono": ["Inter"],
+                      "label-bold": ["Public Sans"],
+                      "headline-md": ["Public Sans"],
+                      "display-lg": ["Public Sans"]
+              },
+              "fontSize": {
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "data-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                      "label-bold": ["13px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "display-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-sm text-on-surface">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 bg-white dark:bg-slate-950 h-full w-64 border-r border-slate-200 dark:border-slate-800 shadow-none font-public-sans text-[13px] tracking-tight leading-none">
+<div class="p-6 border-b border-slate-100 dark:border-slate-900">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+</div>
+<div>
+<h1 class="text-lg font-black tracking-tighter text-emerald-800 dark:text-emerald-200">Botica ERP</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500">Pharma Management</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-4 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+<span>POS</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border-r-4 border-emerald-600 font-semibold active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span>Inventario</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span>Compras</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>Kardex</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Caja</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-100 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span>Reportes</span>
+</a>
+<div class="mt-8 px-4">
+<button class="w-full py-2 bg-primary text-on-primary rounded font-bold shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    New Sale (F2)
+                </button>
+</div>
+</nav>
+<div class="mt-auto py-4 border-t border-slate-100 dark:border-slate-800">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Configuración</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-64 h-14 flex items-center justify-between px-6 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm font-public-sans text-xs font-medium uppercase tracking-wider">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-96 max-w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border-none rounded py-2 pl-10 pr-4 text-[11px] focus:ring-1 focus:ring-primary outline-none" placeholder="BUSCAR PRODUCTO O SKU..." type="text"/>
+</div>
+<nav class="flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 pb-2 cursor-pointer transition-all duration-75" href="#">Ventas</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 pb-2 cursor-pointer transition-all duration-75" href="#">Recetas</a>
+<a class="text-emerald-600 dark:text-emerald-400 border-b-2 border-emerald-600 pb-2 cursor-pointer transition-all duration-75" href="#">Alertas</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded">
+<span class="material-symbols-outlined text-slate-500 text-sm" data-icon="schedule">schedule</span>
+<span class="text-slate-600 dark:text-slate-400">Turno: Mañana</span>
+</div>
+<button class="bg-primary text-on-primary px-3 py-1.5 rounded font-bold text-[10px]">ABRIR CAJA</button>
+<div class="flex items-center gap-2 border-l border-slate-200 dark:border-slate-700 ml-2 pl-4">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer" data-icon="help_outline">help_outline</span>
+<img alt="Pharmacist" class="w-8 h-8 rounded-full border border-emerald-100" data-alt="professional portrait of a pharmacist in a clean medical setting wearing a white lab coat with soft clinical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnp5F8hP-C3PBPgvL9x1H2uSV4_bx3x3AKKkp7yKNI5UOxf2_HCwGciegCrsX57YV3uHvEFXbfmq2mjcxJb2ah7wE7Y1ZeL09ERcx3naP6j4al_ndeA0D2PYGAHKujX_qzUegrdlE6c4ztWq4kiJi2Lb0XC65VzL6Lj0nhJ_SKVx9OZp9Pm0-dN6v-58Y-2hHwM4bJ5-qvY3W3sDHhe7DUYsYBw5_LGN3UVPuE8_p1icQ2zvn7b3JPjzPY-zdPgW9rVPcxCkaQ4_U"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-14 p-gutter h-screen flex flex-col gap-stack-gap">
+<!-- Header Actions Section -->
+<div class="flex items-end justify-between mt-margin-page px-gutter">
+<div>
+<nav class="flex items-center gap-2 text-slate-500 mb-2">
+<span class="text-xs font-label-bold">INICIO</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-xs font-label-bold text-primary">INVENTARIO</span>
+</nav>
+<h2 class="font-display-lg text-display-lg text-on-surface">Gestión de Inventario</h2>
+<p class="text-body-sm text-slate-500 mt-1">Control de stock, lotes y fechas de vencimiento de productos farmacéuticos.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 bg-white border border-outline text-on-surface px-4 py-2 rounded-lg font-label-bold hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+                    Ajuste Stock
+                </button>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-2 rounded-lg font-label-bold shadow-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+                    Ingreso Mercadería
+                </button>
+</div>
+</div>
+<!-- Filters Bento Grid -->
+<div class="grid grid-cols-12 gap-stack-gap px-gutter">
+<div class="col-span-12 lg:col-span-12 bg-white border border-slate-200 p-4 rounded-xl flex flex-wrap items-end gap-gutter">
+<div class="flex-1 min-w-[200px]">
+<label class="block text-[11px] font-bold text-slate-500 mb-1 uppercase tracking-wider">Categoría</label>
+<select class="w-full bg-slate-50 border border-slate-200 rounded p-2 text-body-sm focus:ring-primary focus:border-primary outline-none">
+<option>Todas las categorías</option>
+<option>Antibióticos</option>
+<option>Analgésicos</option>
+<option>Higiene Personal</option>
+<option>Pediatría</option>
+</select>
+</div>
+<div class="flex-1 min-w-[200px]">
+<label class="block text-[11px] font-bold text-slate-500 mb-1 uppercase tracking-wider">Laboratorio</label>
+<select class="w-full bg-slate-50 border border-slate-200 rounded p-2 text-body-sm focus:ring-primary focus:border-primary outline-none">
+<option>Todos los laboratorios</option>
+<option>Pfizer</option>
+<option>Bayer</option>
+<option>Roemmers</option>
+<option>Generic Labs</option>
+</select>
+</div>
+<div class="flex-1 min-w-[150px]">
+<label class="block text-[11px] font-bold text-slate-500 mb-1 uppercase tracking-wider">Vencimiento</label>
+<select class="w-full bg-slate-50 border border-slate-200 rounded p-2 text-body-sm focus:ring-primary focus:border-primary outline-none">
+<option>Cualquier fecha</option>
+<option>Vence en 30 días</option>
+<option>Vence en 60 días</option>
+<option>Vencidos</option>
+</select>
+</div>
+<div class="flex-1 min-w-[150px]">
+<label class="block text-[11px] font-bold text-slate-500 mb-1 uppercase tracking-wider">Estado Stock</label>
+<div class="flex items-center h-[38px] px-2 gap-2 bg-slate-50 border border-slate-200 rounded">
+<input class="rounded text-primary focus:ring-primary" id="critical" type="checkbox"/>
+<label class="text-body-sm text-slate-600" for="critical">Stock Crítico</label>
+</div>
+</div>
+<button class="bg-slate-900 text-white px-4 h-[38px] rounded flex items-center gap-2 hover:bg-slate-800">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_alt">filter_alt</span>
+                    Filtrar
+                </button>
+</div>
+</div>
+<!-- Inventory Data Grid -->
+<div class="flex-1 overflow-hidden px-gutter pb-gutter">
+<div class="bg-white border border-slate-200 rounded-xl shadow-sm h-full flex flex-col">
+<div class="overflow-auto flex-1 custom-scrollbar">
+<table class="w-full text-left border-collapse min-w-[1200px]">
+<thead class="sticky top-0 bg-slate-50 z-10 border-b border-slate-200">
+<tr>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider">Código</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider">Nombre del Producto</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider">Lab</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider">Presentación</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">Stock</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">Mínimo</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">Precio Compra</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">Precio Venta</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider">Vencimiento</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Row 1: Stock OK -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-cell-padding-v font-data-mono text-slate-600">P001254</td>
+<td class="px-cell-padding-h py-cell-padding-v font-label-bold">Amoxicilina 500mg</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">Pfizer</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-500 text-xs">Caja x 30 Tab.</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-100">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                        120
+                                    </span>
+</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono text-slate-500">20</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono">S/ 12.50</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono font-bold">S/ 25.00</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">12/2025</td>
+<td class="px-cell-padding-h py-cell-padding-v text-center">
+<button class="p-1 hover:bg-slate-200 rounded text-slate-400">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Low Stock -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-cell-padding-v font-data-mono text-slate-600">P002891</td>
+<td class="px-cell-padding-h py-cell-padding-v font-label-bold">Paracetamol 1g</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">Roemmers</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-500 text-xs">Caja x 100 Tab.</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 font-bold border border-amber-100">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                        15
+                                    </span>
+</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono text-slate-500">25</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono">S/ 8.20</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono font-bold">S/ 18.00</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">08/2025</td>
+<td class="px-cell-padding-h py-cell-padding-v text-center">
+<button class="p-1 hover:bg-slate-200 rounded text-slate-400">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Expired/Critical -->
+<tr class="hover:bg-slate-50 transition-colors bg-red-50/10">
+<td class="px-cell-padding-h py-cell-padding-v font-data-mono text-slate-600">P000923</td>
+<td class="px-cell-padding-h py-cell-padding-v font-label-bold">Insulina Humana</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">Bayer</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-500 text-xs">Vial 10ml</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-error-container text-error font-bold border border-red-200">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                        0
+                                    </span>
+</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono text-slate-500">5</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono">S/ 45.00</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono font-bold">S/ 85.00</td>
+<td class="px-cell-padding-h py-cell-padding-v text-error font-bold italic">EXPIRADO</td>
+<td class="px-cell-padding-h py-cell-padding-v text-center">
+<button class="p-1 hover:bg-slate-200 rounded text-slate-400">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+</td>
+</tr>
+<!-- More data to fill density -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-cell-padding-v font-data-mono text-slate-600">P003321</td>
+<td class="px-cell-padding-h py-cell-padding-v font-label-bold">Ibuprofeno 400mg</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">Generic Labs</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-500 text-xs">Caja x 50 Tab.</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-100">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                        450
+                                    </span>
+</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono text-slate-500">50</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono">S/ 5.50</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono font-bold">S/ 12.00</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">03/2026</td>
+<td class="px-cell-padding-h py-cell-padding-v text-center">
+<button class="p-1 hover:bg-slate-200 rounded text-slate-400">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-cell-padding-v font-data-mono text-slate-600">P004110</td>
+<td class="px-cell-padding-h py-cell-padding-v font-label-bold">Loratadina 10mg</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">Pfizer</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-500 text-xs">Caja x 20 Tab.</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-100">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                        85
+                                    </span>
+</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono text-slate-500">15</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono">S/ 10.00</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono font-bold">S/ 22.50</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">05/2026</td>
+<td class="px-cell-padding-h py-cell-padding-v text-center">
+<button class="p-1 hover:bg-slate-200 rounded text-slate-400">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-cell-padding-v font-data-mono text-slate-600">P005544</td>
+<td class="px-cell-padding-h py-cell-padding-v font-label-bold">Omeprazol 20mg</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">Bayer</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-500 text-xs">Caja x 30 Tab.</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 font-bold border border-amber-100">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                        8
+                                    </span>
+</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono text-slate-500">10</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono">S/ 15.00</td>
+<td class="px-cell-padding-h py-cell-padding-v text-right font-data-mono font-bold">S/ 32.00</td>
+<td class="px-cell-padding-h py-cell-padding-v text-slate-600">11/2025</td>
+<td class="px-cell-padding-h py-cell-padding-v text-center">
+<button class="p-1 hover:bg-slate-200 rounded text-slate-400">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Table Footer -->
+<div class="px-6 py-4 border-t border-slate-200 flex items-center justify-between bg-slate-50/50">
+<span class="text-xs text-slate-500 font-medium">Mostrando 1-6 de 254 productos</span>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 text-slate-400 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 text-slate-600 hover:bg-white text-xs">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 text-slate-600 hover:bg-white text-xs">3</button>
+<span class="px-1 text-slate-400">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 text-slate-600 hover:bg-white text-xs">24</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 text-slate-400 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Dashboard Stats Widgets -->
+<div class="grid grid-cols-4 gap-stack-gap px-gutter pb-gutter">
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[30px]" data-icon="inventory">inventory</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Total SKUs</p>
+<p class="text-2xl font-black text-slate-900">1,452</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[30px]" data-icon="warning">warning</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Stock Crítico</p>
+<p class="text-2xl font-black text-amber-600">24</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-red-50 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[30px]" data-icon="event_busy">event_busy</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Vencidos (30d)</p>
+<p class="text-2xl font-black text-red-600">12</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[30px]" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Valor Inventario</p>
+<p class="text-2xl font-black text-slate-900">S/ 45.2K</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

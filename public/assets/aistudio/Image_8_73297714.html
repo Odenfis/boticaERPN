@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Botica ERP - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#003670",
+                        "on-primary-fixed-variant": "#00522d",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "secondary": "#005db7",
+                        "surface-container-highest": "#dfe4dd",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e5e9e2",
+                        "surface-container-low": "#f0f5ee",
+                        "on-primary-fixed": "#00210f",
+                        "on-background": "#181d19",
+                        "surface-variant": "#dfe4dd",
+                        "on-primary-container": "#f6fff4",
+                        "outline-variant": "#becabe",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#edf2eb",
+                        "surface-container": "#ebefe8",
+                        "outline": "#6f7a70",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffd9dc",
+                        "primary-fixed-dim": "#7ed99e",
+                        "primary-fixed": "#9af6b8",
+                        "on-tertiary-container": "#fffbff",
+                        "primary-container": "#268451",
+                        "inverse-surface": "#2d322d",
+                        "on-secondary-fixed": "#001b3d",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3f4941",
+                        "on-tertiary-fixed": "#400010",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#181d19",
+                        "on-secondary-fixed-variant": "#00468c",
+                        "tertiary": "#973f4c",
+                        "surface-bright": "#f6fbf3",
+                        "tertiary-container": "#b55764",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#64a1ff",
+                        "surface-tint": "#006d3d",
+                        "on-tertiary-fixed-variant": "#7c2a38",
+                        "surface-dim": "#d7dbd4",
+                        "primary": "#006a3b",
+                        "secondary-fixed": "#d6e3ff",
+                        "background": "#f6fbf3",
+                        "surface": "#f6fbf3",
+                        "inverse-primary": "#7ed99e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "cell-padding-v": "8px",
+                        "stack-gap": "12px",
+                        "gutter": "16px",
+                        "margin-page": "24px",
+                        "unit": "4px",
+                        "cell-padding-h": "12px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "data-mono": ["Inter"],
+                        "label-bold": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
+                        "display-lg": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "label-bold": ["13px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f6fbf3;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #becabe;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body-sm text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 bg-white dark:bg-slate-950 docked h-full w-64 border-r border-slate-200 dark:border-slate-800 font-public-sans text-[13px] tracking-tight leading-none">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="medical_services">medical_services</span>
+<div class="flex flex-col">
+<span class="text-lg font-black tracking-tighter text-emerald-800 dark:text-emerald-200">Botica ERP</span>
+<span class="text-[10px] uppercase tracking-widest text-outline">Pharma Management</span>
+</div>
+</div>
+<nav class="space-y-1">
+<!-- Dashboard Active -->
+<div class="flex items-center gap-3 px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border-r-4 border-emerald-600 font-semibold cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+<span>POS</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Inventario</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span>Compras</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>Kardex</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Caja</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span>Reportes</span>
+</div>
+</nav>
+<div class="mt-8 pt-8 border-t border-slate-100">
+<button class="w-full bg-primary text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 shadow-md hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    New Sale (F2)
+                </button>
+</div>
+</div>
+<div class="mt-auto p-6 space-y-1">
+<div class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Configuración</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/20 cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Cerrar Sesión</span>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-64 h-14 flex items-center justify-between px-6 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none font-public-sans text-xs font-medium uppercase tracking-wider">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-1.5 text-[11px] focus:ring-1 focus:ring-primary uppercase" placeholder="BUSCAR PRODUCTO O SKU..." type="text"/>
+</div>
+<div class="flex gap-4">
+<span class="text-emerald-600 dark:text-emerald-400 border-b-2 border-emerald-600 pb-2 cursor-pointer">Ventas</span>
+<span class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 pb-2 cursor-pointer">Recetas</span>
+<span class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 pb-2 cursor-pointer">Alertas</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 border-r border-slate-200 pr-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px]">Turno: Mañana</span>
+<button class="bg-primary-container text-white px-3 py-1 rounded text-[10px] font-bold">ABRIR CAJA</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer" data-icon="help_outline">help_outline</span>
+<div class="flex items-center gap-3 ml-2 border-l border-slate-200 pl-4">
+<div class="text-right">
+<div class="text-slate-900 font-bold lowercase first-letter:uppercase">Farmacéutico de Turno</div>
+<div class="text-[9px] text-slate-400 tracking-tight">ID: 44920-A</div>
+</div>
+<img class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="professional portrait of a pharmacist wearing a white lab coat in a clean pharmacy setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpOKeeayNf2HAJoGdXY1htWuYAqygmwtf2EFqDIOThCty9nwKLFdROH4CWYt6MvEaHGxmQXPXerQAznWYfpH5PIvL7ClLC2q7YDBvT9RzLGc_XqBJJ7YhW1NfP99qEfrGXAnxkIsfx3O3y8_cVCZLVDx529WXjwfzkIWzASJKwmXC_VuB0MeStxhudGurrnk4XgJz7siGGqegtA_W5zFTZBa3eKY1M9TUa0e8CRkepfny_tZXQemrCR9QcH44I8VpfA6ncNpThkbY"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 mt-14 p-gutter h-[calc(100vh-3.5rem)] overflow-y-auto custom-scrollbar">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Bento Dashboard Layout -->
+<!-- Left Column: Metrics and Quick Actions -->
+<div class="col-span-8 flex flex-col gap-gutter">
+<!-- Metric Cards -->
+<div class="grid grid-cols-4 gap-stack-gap">
+<div class="bg-white p-4 border border-outline-variant rounded-lg">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-label-bold text-outline uppercase">Ventas Hoy</span>
+<span class="material-symbols-outlined text-emerald-600" data-icon="monetization_on">monetization_on</span>
+</div>
+<div class="text-headline-md font-data-mono text-on-surface">$2,840.00</div>
+<div class="text-[10px] text-emerald-600 font-semibold mt-1 flex items-center">
+<span class="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span> +12% vs ayer
+                        </div>
+</div>
+<div class="bg-white p-4 border border-outline-variant rounded-lg">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-label-bold text-outline uppercase">Por Vencer</span>
+<span class="material-symbols-outlined text-tertiary" data-icon="event_busy">event_busy</span>
+</div>
+<div class="text-headline-md font-data-mono text-tertiary">14</div>
+<div class="text-[10px] text-tertiary font-semibold mt-1">Próximos 30 días</div>
+</div>
+<div class="bg-white p-4 border border-outline-variant rounded-lg">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-label-bold text-outline uppercase">Stock Bajo</span>
+<span class="material-symbols-outlined text-secondary" data-icon="low_priority">low_priority</span>
+</div>
+<div class="text-headline-md font-data-mono text-on-surface">28</div>
+<div class="text-[10px] text-secondary font-semibold mt-1">Requiere reposición</div>
+</div>
+<div class="bg-white p-4 border border-outline-variant rounded-lg">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-label-bold text-outline uppercase">Pedidos Pend.</span>
+<span class="material-symbols-outlined text-outline" data-icon="pending_actions">pending_actions</span>
+</div>
+<div class="text-headline-md font-data-mono text-on-surface">06</div>
+<div class="text-[10px] text-outline font-semibold mt-1">En tránsito</div>
+</div>
+</div>
+<!-- Quick Access Grid -->
+<div class="grid grid-cols-3 gap-stack-gap">
+<button class="bg-primary p-6 rounded-xl text-white flex flex-col items-center justify-center gap-3 hover:opacity-90 transition-all shadow-sm">
+<span class="material-symbols-outlined text-4xl" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label-bold uppercase tracking-widest text-[11px]">Nueva Venta (F2)</span>
+</button>
+<button class="bg-secondary-container p-6 rounded-xl text-on-secondary-container flex flex-col items-center justify-center gap-3 hover:opacity-90 transition-all shadow-sm">
+<span class="material-symbols-outlined text-4xl" data-icon="input">input</span>
+<span class="font-label-bold uppercase tracking-widest text-[11px]">Ingreso Almacén</span>
+</button>
+<button class="bg-surface-container-highest p-6 rounded-xl text-on-surface flex flex-col items-center justify-center gap-3 hover:opacity-90 transition-all shadow-sm border border-outline-variant">
+<span class="material-symbols-outlined text-4xl" data-icon="lock">lock</span>
+<span class="font-label-bold uppercase tracking-widest text-[11px]">Cierre de Caja</span>
+</button>
+</div>
+<!-- Inventory Table (High Density) -->
+<div class="bg-white rounded-lg border border-outline-variant overflow-hidden flex flex-col">
+<div class="px-gutter py-3 border-b border-outline-variant flex items-center justify-between bg-surface-container-low">
+<h3 class="font-headline-md text-sm uppercase tracking-wider">Últimos Movimientos de Inventario</h3>
+<button class="text-[10px] font-bold text-primary flex items-center gap-1 uppercase">Ver Todo <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span></button>
+</div>
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low text-[10px] font-label-bold text-outline uppercase border-b border-outline-variant">
+<tr>
+<th class="px-4 py-2">ID SKU</th>
+<th class="px-4 py-2">Producto</th>
+<th class="px-4 py-2">Categoría</th>
+<th class="px-4 py-2">Stock</th>
+<th class="px-4 py-2 text-right">Vencimiento</th>
+<th class="px-4 py-2 text-center">Estado</th>
+</tr>
+</thead>
+<tbody class="text-[12px]">
+<tr class="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+<td class="px-4 py-cell-padding-v font-data-mono">AMX-500-2</td>
+<td class="px-4 py-cell-padding-v font-semibold">Amoxicilina 500mg (Cap)</td>
+<td class="px-4 py-cell-padding-v">Antibióticos</td>
+<td class="px-4 py-cell-padding-v">450 units</td>
+<td class="px-4 py-cell-padding-v text-right font-data-mono">12/2025</td>
+<td class="px-4 py-cell-padding-v text-center">
+<span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full text-[10px] font-bold">OPTIMO</span>
+</td>
+</tr>
+<tr class="border-b border-slate-50 hover:bg-slate-50 transition-colors bg-slate-50/30">
+<td class="px-4 py-cell-padding-v font-data-mono">PAR-100-F</td>
+<td class="px-4 py-cell-padding-v font-semibold">Paracetamol Jarabe Inf.</td>
+<td class="px-4 py-cell-padding-v">Analgésicos</td>
+<td class="px-4 py-cell-padding-v text-error font-bold">12 units</td>
+<td class="px-4 py-cell-padding-v text-right font-data-mono">08/2024</td>
+<td class="px-4 py-cell-padding-v text-center">
+<span class="bg-orange-100 text-orange-800 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">Bajo</span>
+</td>
+</tr>
+<tr class="border-b border-slate-50 hover:bg-slate-50 transition-colors">
+<td class="px-4 py-cell-padding-v font-data-mono">IBU-400-T</td>
+<td class="px-4 py-cell-padding-v font-semibold">Ibuprofeno 400mg</td>
+<td class="px-4 py-cell-padding-v">Antiinflamatorio</td>
+<td class="px-4 py-cell-padding-v">230 units</td>
+<td class="px-4 py-cell-padding-v text-right font-data-mono">03/2024</td>
+<td class="px-4 py-cell-padding-v text-center">
+<span class="bg-red-100 text-red-800 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">Crítico</span>
+</td>
+</tr>
+<tr class="border-b border-slate-50 hover:bg-slate-50 transition-colors bg-slate-50/30">
+<td class="px-4 py-cell-padding-v font-data-mono">OMP-20-C</td>
+<td class="px-4 py-cell-padding-v font-semibold">Omeprazol 20mg</td>
+<td class="px-4 py-cell-padding-v">Gastro</td>
+<td class="px-4 py-cell-padding-v">1,200 units</td>
+<td class="px-4 py-cell-padding-v text-right font-data-mono">11/2026</td>
+<td class="px-4 py-cell-padding-v text-center">
+<span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full text-[10px] font-bold">OPTIMO</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Column: Alerts and Focus items -->
+<div class="col-span-4 flex flex-col gap-gutter">
+<!-- Alerts Panel -->
+<div class="bg-white rounded-lg border border-outline-variant shadow-sm overflow-hidden">
+<div class="px-gutter py-3 bg-tertiary-container text-white flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="notification_important">notification_important</span>
+<h3 class="font-headline-md text-sm uppercase tracking-wider">Centro de Alertas</h3>
+</div>
+<span class="bg-white/20 px-2 py-0.5 rounded text-[10px] font-bold">08 TOTAL</span>
+</div>
+<div class="p-gutter space-y-3">
+<div class="flex gap-3 p-3 bg-red-50 border-l-4 border-red-500 rounded-r-lg">
+<span class="material-symbols-outlined text-red-600" data-icon="warning">warning</span>
+<div>
+<div class="text-[12px] font-bold text-red-800 uppercase">3 Expired Products</div>
+<div class="text-[11px] text-red-600">Retirar inmediatamente del estante A-04 y B-12.</div>
+</div>
+</div>
+<div class="flex gap-3 p-3 bg-orange-50 border-l-4 border-orange-500 rounded-r-lg">
+<span class="material-symbols-outlined text-orange-600" data-icon="receipt_long">receipt_long</span>
+<div>
+<div class="text-[12px] font-bold text-orange-800 uppercase">5 Pending Prescriptions</div>
+<div class="text-[11px] text-orange-600">Requieren validación de farmacéutico jefe.</div>
+</div>
+</div>
+<div class="flex gap-3 p-3 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg">
+<span class="material-symbols-outlined text-blue-600" data-icon="info">info</span>
+<div>
+<div class="text-[12px] font-bold text-blue-800 uppercase">Stock Bajo: Insulina</div>
+<div class="text-[11px] text-blue-600">Reponer stock de cadena de frío pronto.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sales Target Card -->
+<div class="bg-white p-gutter border border-outline-variant rounded-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-6xl" data-icon="target">target</span>
+</div>
+<h3 class="text-[11px] font-label-bold text-outline uppercase mb-4">Meta de Ventas Mensual</h3>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="text-display-lg font-data-mono text-emerald-800">$64.2k</span>
+<span class="text-body-sm text-outline">/ $85.0k</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full mb-3">
+<div class="bg-primary h-full rounded-full" style="width: 75%"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant italic">Quedan 10 días para el cierre de mes.</p>
+</div>
+<!-- Recent Activity Feed -->
+<div class="bg-white rounded-lg border border-outline-variant flex-1 flex flex-col">
+<div class="px-gutter py-3 border-b border-outline-variant">
+<h3 class="font-headline-md text-sm uppercase tracking-wider">Actividad Reciente</h3>
+</div>
+<div class="p-gutter space-y-4 overflow-y-auto custom-scrollbar flex-1">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-emerald-600 text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<div class="text-[12px] font-bold">Venta Exitosa #8892</div>
+<div class="text-[10px] text-outline">Hace 2 minutos • Cajero: Juan P.</div>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-blue-600 text-sm" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<div class="text-[12px] font-bold">Ingreso de Mercadería</div>
+<div class="text-[10px] text-outline">Hace 25 minutos • Guía #202-A</div>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-slate-600 text-sm" data-icon="edit">edit</span>
+</div>
+<div>
+<div class="text-[12px] font-bold">Ajuste de Stock</div>
+<div class="text-[10px] text-outline">Hace 1 hora • Farm. de Turno</div>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-orange-600 text-sm" data-icon="block">block</span>
+</div>
+<div>
+<div class="text-[12px] font-bold">Anulación de Boleta</div>
+<div class="text-[10px] text-outline">Hace 3 horas • Boleta #8870</div>
+</div>
+</div>
+</div>
+<div class="p-3 border-t border-outline-variant text-center">
+<button class="text-[10px] font-bold text-outline uppercase hover:text-primary transition-colors">Descargar Log del Día</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Floating Action Button -->
+<div class="fixed bottom-8 right-8">
+<button class="bg-primary text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="add" data-weight="fill">add</span>
+</button>
+</div>
+</body></html>

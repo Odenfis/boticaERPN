@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#003670",
+                    "on-primary-fixed-variant": "#00522d",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "secondary": "#005db7",
+                    "surface-container-highest": "#dfe4dd",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e5e9e2",
+                    "surface-container-low": "#f0f5ee",
+                    "on-primary-fixed": "#00210f",
+                    "on-background": "#181d19",
+                    "surface-variant": "#dfe4dd",
+                    "on-primary-container": "#f6fff4",
+                    "outline-variant": "#becabe",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#edf2eb",
+                    "surface-container": "#ebefe8",
+                    "outline": "#6f7a70",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffd9dc",
+                    "primary-fixed-dim": "#7ed99e",
+                    "primary-fixed": "#9af6b8",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-container": "#268451",
+                    "inverse-surface": "#2d322d",
+                    "on-secondary-fixed": "#001b3d",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#3f4941",
+                    "on-tertiary-fixed": "#400010",
+                    "tertiary-fixed-dim": "#ffb2b9",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#181d19",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "tertiary": "#973f4c",
+                    "surface-bright": "#f6fbf3",
+                    "tertiary-container": "#b55764",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#64a1ff",
+                    "surface-tint": "#006d3d",
+                    "on-tertiary-fixed-variant": "#7c2a38",
+                    "surface-dim": "#d7dbd4",
+                    "primary": "#006a3b",
+                    "secondary-fixed": "#d6e3ff",
+                    "background": "#f6fbf3",
+                    "surface": "#f6fbf3",
+                    "inverse-primary": "#7ed99e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "cell-padding-v": "8px",
+                    "stack-gap": "12px",
+                    "gutter": "16px",
+                    "margin-page": "24px",
+                    "unit": "4px",
+                    "cell-padding-h": "12px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Public Sans"],
+                    "body-lg": ["Public Sans"],
+                    "data-mono": ["Inter"],
+                    "label-bold": ["Public Sans"],
+                    "headline-md": ["Public Sans"],
+                    "display-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "label-bold": ["13px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .zebra-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-sm text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 bg-white border-r border-slate-200 w-64 shadow-none">
+<div class="p-6 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="medical_services">medical_services</span>
+</div>
+<div>
+<h1 class="text-lg font-black tracking-tighter text-emerald-800 leading-tight">Botica ERP</h1>
+<p class="font-public-sans text-[11px] uppercase tracking-widest text-slate-400">Pharma Management</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-4 overflow-y-auto font-public-sans text-[13px] tracking-tight leading-none">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span> POS
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span> Inventario
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 bg-emerald-50 text-emerald-700 border-r-4 border-emerald-600 font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span> Compras
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span> Kardex
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span> Caja
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span> Reportes
+            </a>
+</nav>
+<div class="mt-auto p-4 border-t border-slate-100 bg-slate-50/50">
+<button class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider shadow-sm active:opacity-80 transition-all mb-4">
+                New Sale (F2)
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-public-sans text-[13px]">Configuración</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="logout">logout</span>
+<span class="font-public-sans text-[13px]">Cerrar Sesión</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 h-14 flex items-center justify-between px-6 z-30 bg-white border-b border-slate-200 shadow-sm">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-md text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Buscar órdenes, proveedores o SKUs..." type="text"/>
+</div>
+</div>
+<nav class="flex items-center gap-8 ml-8">
+<a class="font-public-sans text-xs font-medium uppercase tracking-wider text-slate-500 hover:text-slate-800" href="#">Ventas</a>
+<a class="font-public-sans text-xs font-medium uppercase tracking-wider text-slate-500 hover:text-slate-800" href="#">Recetas</a>
+<a class="font-public-sans text-xs font-medium uppercase tracking-wider text-emerald-600 border-b-2 border-emerald-600 pb-2" href="#">Alertas</a>
+</nav>
+<div class="flex items-center gap-4 ml-auto">
+<div class="flex flex-col items-end mr-2">
+<span class="text-[10px] font-bold text-emerald-600 uppercase">Turno: Mañana</span>
+<span class="text-[11px] text-slate-500">Dr. Ricardo Pérez</span>
+</div>
+<button class="flex items-center gap-2 bg-emerald-700 text-white px-4 py-1.5 rounded text-xs font-bold uppercase tracking-tight hover:bg-emerald-800 transition-colors">
+                Abrir Caja
+            </button>
+<div class="flex items-center gap-2 border-l border-slate-200 pl-4">
+<button class="p-1.5 hover:bg-slate-50 rounded-full text-slate-500 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<img alt="Farmacéutico de Turno" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="professional portrait of a pharmacist in a white coat looking friendly with a blurred pharmacy background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiMMKu3R76Z9s4WGiZBflUljcXdOQR8ZMJ6wQv8Q-7I59lXw-xUixzOCzSqlpPWtL6-GI4Fi03Iwx_x7Ggt8YgLelrYWTjpBIriYeylYrTOJFh-xaIvxJs15iyh5LOTd2noP9vmEs-v-ulx6JcA-68DxcM6w9oG6Kk5zzUGhPVeS7O-EsnaBkMP19mS3xXX7Cw4LL6jOgPGCSzKmN7y1qIXfSvn5QyWnpuXzURntV2EIb_IiAWoku_1u9-W11AMUwrArNW7a2DPe4"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-14 p-6 min-h-screen">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Gestión de Compras y Proveedores</h2>
+<nav class="flex gap-2 text-xs text-slate-500 mt-1">
+<span>Módulo Administrativo</span>
+<span>/</span>
+<span class="text-emerald-700 font-semibold">Órdenes de Abastecimiento</span>
+</nav>
+</div>
+<div class="flex gap-3">
+<button class="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-slate-50 shadow-sm transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="file_download">file_download</span> Exportar Reporte
+                </button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg text-sm font-bold flex items-center gap-2 shadow-md hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span> Nueva Orden Directa
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<!-- LEFT COLUMN: New Order & Supplier Form -->
+<div class="col-span-12 xl:col-span-4 space-y-6">
+<!-- New Order Form Card -->
+<div class="bg-white border border-outline-variant rounded-xl p-5 shadow-sm">
+<div class="flex items-center gap-3 mb-5 border-b border-slate-100 pb-3">
+<span class="material-symbols-outlined text-primary" data-icon="post_add">post_add</span>
+<h3 class="font-label-bold text-label-bold">Formulario de Requerimiento</h3>
+</div>
+<form class="space-y-4">
+<div>
+<label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-tighter">Seleccionar Proveedor</label>
+<select class="w-full bg-slate-50 border-slate-200 rounded text-sm focus:ring-emerald-500 focus:border-emerald-500">
+<option>Droguería Alfarma S.A.</option>
+<option>Distribuidora Médica Global</option>
+<option>Laboratorios Roche</option>
+</select>
+</div>
+<div class="relative">
+<label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-tighter">Producto (Autocompletar)</label>
+<div class="relative">
+<input class="w-full bg-white border-slate-200 rounded text-sm pl-9" placeholder="Escriba nombre o SKU..." type="text"/>
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]" data-icon="medication">medication</span>
+</div>
+<!-- Autocomplete dropdown mock -->
+<div class="absolute z-10 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-lg hidden">
+<div class="p-2 hover:bg-emerald-50 cursor-pointer border-b border-slate-50">
+<p class="text-xs font-bold">Paracetamol 500mg - Tab</p>
+<p class="text-[10px] text-slate-500">Stock Actual: 140 | SKU: MED-001</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-tighter">Cantidad</label>
+<input class="w-full bg-white border-slate-200 rounded text-sm" type="number" value="100"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-tighter">Urgencia</label>
+<select class="w-full bg-white border-slate-200 rounded text-sm">
+<option>Normal</option>
+<option class="text-error">Crítica</option>
+</select>
+</div>
+</div>
+<div class="p-3 bg-emerald-50 rounded-lg border border-emerald-100 mt-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs text-emerald-800">Costo Estimado:</span>
+<span class="text-sm font-bold text-emerald-900">$1,450.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-emerald-800">Fecha Estimada:</span>
+<span class="text-xs font-medium text-emerald-900">48-72 Horas</span>
+</div>
+</div>
+<button class="w-full bg-secondary text-white py-2.5 rounded-lg font-bold text-sm shadow-md hover:bg-secondary-container transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+                            Añadir a la Orden
+                        </button>
+</form>
+</div>
+<!-- Suppliers History Card -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+<h3 class="font-label-bold text-label-bold">Proveedores Destacados</h3>
+<button class="text-xs text-emerald-700 font-bold hover:underline">Ver Todos</button>
+</div>
+<div class="divide-y divide-slate-100">
+<!-- Supplier Item -->
+<div class="p-4 flex items-center gap-3 hover:bg-slate-50 transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded bg-slate-100 flex items-center justify-center text-slate-500 font-bold">DA</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slate-800 truncate">Droguería Alfarma S.A.</p>
+<p class="text-[11px] text-slate-500">Última compra: Hace 3 días</p>
+</div>
+<div class="text-right">
+<span class="block text-xs font-bold text-emerald-600">8.5/10</span>
+<span class="block text-[10px] text-slate-400 uppercase">Score</span>
+</div>
+</div>
+<!-- Supplier Item -->
+<div class="p-4 flex items-center gap-3 hover:bg-slate-50 transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded bg-slate-100 flex items-center justify-center text-slate-500 font-bold">DM</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slate-800 truncate">Distribuidora Médica Global</p>
+<p class="text-[11px] text-slate-500">Última compra: Hace 12 días</p>
+</div>
+<div class="text-right">
+<span class="block text-xs font-bold text-amber-600">6.2/10</span>
+<span class="block text-[10px] text-slate-400 uppercase">Score</span>
+</div>
+</div>
+<!-- Supplier Item -->
+<div class="p-4 flex items-center gap-3 hover:bg-slate-50 transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded bg-slate-100 flex items-center justify-center text-slate-500 font-bold">LR</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slate-800 truncate">Laboratorios Roche</p>
+<p class="text-[11px] text-slate-500">Última compra: Hoy</p>
+</div>
+<div class="text-right">
+<span class="block text-xs font-bold text-emerald-600">9.1/10</span>
+<span class="block text-[10px] text-slate-400 uppercase">Score</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Order Tracking & History -->
+<div class="col-span-12 xl:col-span-8 space-y-6">
+<!-- Status Dashboard Summary -->
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
+<span class="material-symbols-outlined" data-icon="pending_actions">pending_actions</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Pendientes</p>
+<p class="text-2xl font-black text-slate-800">08</p>
+</div>
+</div>
+<div class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">En Tránsito</p>
+<p class="text-2xl font-black text-slate-800">04</p>
+</div>
+</div>
+<div class="bg-white border border-slate-200 p-4 rounded-xl shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Completados</p>
+<p class="text-2xl font-black text-slate-800">126</p>
+</div>
+</div>
+</div>
+<!-- Main Data Grid: Active Orders -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 border-b border-slate-200 flex flex-wrap gap-4 items-center justify-between">
+<div class="flex items-center gap-2">
+<h3 class="font-label-bold text-label-bold">Órdenes Recientes</h3>
+<span class="bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded-full font-bold">Mostrando 12 de 48</span>
+</div>
+<div class="flex gap-2">
+<button class="bg-slate-100 text-slate-600 px-3 py-1 rounded text-xs font-bold hover:bg-slate-200 transition-colors">Todos</button>
+<button class="bg-white border border-slate-200 text-slate-500 px-3 py-1 rounded text-xs font-bold hover:bg-slate-50 transition-colors">Urgentes</button>
+<button class="bg-white border border-slate-200 text-slate-500 px-3 py-1 rounded text-xs font-bold hover:bg-slate-50 transition-colors">Retrasados</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left zebra-table">
+<thead>
+<tr class="bg-slate-50 text-[11px] font-bold text-slate-500 uppercase tracking-widest border-b border-slate-200">
+<th class="px-cell-padding-h py-cell-padding-v">ID Orden</th>
+<th class="px-cell-padding-h py-cell-padding-v">Proveedor</th>
+<th class="px-cell-padding-h py-cell-padding-v">Fecha</th>
+<th class="px-cell-padding-h py-cell-padding-v">Total items</th>
+<th class="px-cell-padding-h py-cell-padding-v">Monto Total</th>
+<th class="px-cell-padding-h py-cell-padding-v">Estado</th>
+<th class="px-cell-padding-h py-cell-padding-v text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<!-- Order Row -->
+<tr class="border-b border-slate-100 group">
+<td class="px-cell-padding-h py-4 font-data-mono text-emerald-800">#PO-2405-081</td>
+<td class="px-cell-padding-h py-4">
+<div class="flex flex-col">
+<span class="font-bold text-slate-800">Droguería Alfarma S.A.</span>
+<span class="text-[10px] text-slate-400">RUC: 20556677889</span>
+</div>
+</td>
+<td class="px-cell-padding-h py-4 text-slate-600">12/05/2024</td>
+<td class="px-cell-padding-h py-4 text-center">24</td>
+<td class="px-cell-padding-h py-4 font-bold text-slate-800">$3,420.50</td>
+<td class="px-cell-padding-h py-4">
+<span class="inline-flex items-center gap-1 bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                            Pendiente
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-4 text-right">
+<button class="p-1 hover:bg-emerald-50 text-slate-400 hover:text-emerald-700 rounded transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+<button class="p-1 hover:bg-slate-50 text-slate-400 hover:text-slate-700 rounded transition-all ml-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+</td>
+</tr>
+<!-- Order Row -->
+<tr class="border-b border-slate-100 group">
+<td class="px-cell-padding-h py-4 font-data-mono text-emerald-800">#PO-2405-079</td>
+<td class="px-cell-padding-h py-4">
+<div class="flex flex-col">
+<span class="font-bold text-slate-800">Laboratorios Roche</span>
+<span class="text-[10px] text-slate-400">RUC: 20112233445</span>
+</div>
+</td>
+<td class="px-cell-padding-h py-4 text-slate-600">11/05/2024</td>
+<td class="px-cell-padding-h py-4 text-center">12</td>
+<td class="px-cell-padding-h py-4 font-bold text-slate-800">$12,800.00</td>
+<td class="px-cell-padding-h py-4">
+<span class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            Enviado
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-4 text-right">
+<button class="p-1 hover:bg-emerald-50 text-slate-400 hover:text-emerald-700 rounded transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+<button class="p-1 hover:bg-slate-50 text-slate-400 hover:text-slate-700 rounded transition-all ml-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_shipping">local_shipping</span>
+</button>
+</td>
+</tr>
+<!-- Order Row -->
+<tr class="border-b border-slate-100 group">
+<td class="px-cell-padding-h py-4 font-data-mono text-emerald-800">#PO-2405-075</td>
+<td class="px-cell-padding-h py-4">
+<div class="flex flex-col">
+<span class="font-bold text-slate-800">Distribuidora Médica Global</span>
+<span class="text-[10px] text-slate-400">RUC: 20448899112</span>
+</div>
+</td>
+<td class="px-cell-padding-h py-4 text-slate-600">10/05/2024</td>
+<td class="px-cell-padding-h py-4 text-center">45</td>
+<td class="px-cell-padding-h py-4 font-bold text-slate-800">$2,100.25</td>
+<td class="px-cell-padding-h py-4">
+<span class="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                            Recibido
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-4 text-right">
+<button class="p-1 hover:bg-emerald-50 text-slate-400 hover:text-emerald-700 rounded transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+<button class="p-1 hover:bg-slate-50 text-slate-400 hover:text-slate-700 rounded transition-all ml-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="print">print</span>
+</button>
+</td>
+</tr>
+<!-- Order Row -->
+<tr class="group">
+<td class="px-cell-padding-h py-4 font-data-mono text-emerald-800">#PO-2405-072</td>
+<td class="px-cell-padding-h py-4">
+<div class="flex flex-col">
+<span class="font-bold text-slate-800">Droguería Alfarma S.A.</span>
+<span class="text-[10px] text-slate-400">RUC: 20556677889</span>
+</div>
+</td>
+<td class="px-cell-padding-h py-4 text-slate-600">08/05/2024</td>
+<td class="px-cell-padding-h py-4 text-center">8</td>
+<td class="px-cell-padding-h py-4 font-bold text-slate-800">$850.00</td>
+<td class="px-cell-padding-h py-4">
+<span class="inline-flex items-center gap-1 bg-slate-50 text-slate-500 px-2 py-0.5 rounded-full text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                                            Completado
+                                        </span>
+</td>
+<td class="px-cell-padding-h py-4 text-right">
+<button class="p-1 hover:bg-emerald-50 text-slate-400 hover:text-emerald-700 rounded transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+<button class="p-1 hover:bg-slate-50 text-slate-400 hover:text-slate-700 rounded transition-all ml-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-between items-center">
+<span class="text-xs text-slate-500 font-medium">Página 1 de 12</span>
+<div class="flex gap-2">
+<button class="p-1 border border-slate-200 rounded bg-white hover:bg-slate-50 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-1 border border-slate-200 rounded bg-white hover:bg-slate-50">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Extra Info -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-xl p-5 text-white shadow-lg flex justify-between items-center overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="text-emerald-200 text-[11px] font-bold uppercase tracking-widest mb-1">Stock Crítico</h4>
+<p class="text-3xl font-black mb-2">14 Items</p>
+<button class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1.5 rounded-lg border border-white/20 transition-all uppercase tracking-tighter">Generar Orden Auto</button>
+</div>
+<span class="material-symbols-outlined text-[80px] text-white/10 absolute -right-4 -bottom-4" data-icon="warning">warning</span>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-5 shadow-sm flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[32px]" data-icon="analytics">analytics</span>
+</div>
+<div>
+<h4 class="text-slate-800 font-bold text-sm mb-1">Ahorro Estimado del Mes</h4>
+<p class="text-emerald-600 font-black text-2xl">+ $1,240.00</p>
+<p class="text-[11px] text-slate-500 mt-1">Comparado con precios de mercado regional.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Toast Mockup -->
+<div class="fixed bottom-6 right-6 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-4 z-50 animate-bounce-short">
+<span class="material-symbols-outlined text-emerald-400" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+<div>
+<p class="text-xs font-bold">Pedido Recibido</p>
+<p class="text-[10px] text-slate-400">Roche ha confirmado el envío #PO-2405-079.</p>
+</div>
+<button class="ml-4 text-xs font-bold text-slate-400 hover:text-white">Cerrar</button>
+</div>
+</body></html>

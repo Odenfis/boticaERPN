@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#003670",
+                    "on-primary-fixed-variant": "#00522d",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "secondary": "#005db7",
+                    "surface-container-highest": "#dfe4dd",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e5e9e2",
+                    "surface-container-low": "#f0f5ee",
+                    "on-primary-fixed": "#00210f",
+                    "on-background": "#181d19",
+                    "surface-variant": "#dfe4dd",
+                    "on-primary-container": "#f6fff4",
+                    "outline-variant": "#becabe",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#edf2eb",
+                    "surface-container": "#ebefe8",
+                    "outline": "#6f7a70",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffd9dc",
+                    "primary-fixed-dim": "#7ed99e",
+                    "primary-fixed": "#9af6b8",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-container": "#268451",
+                    "inverse-surface": "#2d322d",
+                    "on-secondary-fixed": "#001b3d",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#3f4941",
+                    "on-tertiary-fixed": "#400010",
+                    "tertiary-fixed-dim": "#ffb2b9",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#181d19",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "tertiary": "#973f4c",
+                    "surface-bright": "#f6fbf3",
+                    "tertiary-container": "#b55764",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#64a1ff",
+                    "surface-tint": "#006d3d",
+                    "on-tertiary-fixed-variant": "#7c2a38",
+                    "surface-dim": "#d7dbd4",
+                    "primary": "#006a3b",
+                    "secondary-fixed": "#d6e3ff",
+                    "background": "#f6fbf3",
+                    "surface": "#f6fbf3",
+                    "inverse-primary": "#7ed99e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "cell-padding-v": "8px",
+                    "stack-gap": "12px",
+                    "gutter": "16px",
+                    "margin-page": "24px",
+                    "unit": "4px",
+                    "cell-padding-h": "12px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Public Sans"],
+                    "body-lg": ["Public Sans"],
+                    "data-mono": ["Inter"],
+                    "label-bold": ["Public Sans"],
+                    "headline-md": ["Public Sans"],
+                    "display-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "label-bold": ["13px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background font-body-sm text-on-background overflow-hidden h-screen flex">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 docked h-full w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+<div class="p-6">
+<h1 class="text-lg font-black tracking-tighter text-emerald-800 dark:text-emerald-200">Botica ERP</h1>
+<p class="font-public-sans text-[11px] uppercase tracking-widest text-slate-400 mt-1">Pharma Management</p>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 font-public-sans text-[13px] tracking-tight leading-none" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border-r-4 border-emerald-600 font-semibold font-public-sans text-[13px] tracking-tight leading-none" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale" style="font-variation-settings: 'FILL' 1;">point_of_sale</span>
+                POS
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 font-public-sans text-[13px] tracking-tight leading-none" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Inventario
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 font-public-sans text-[13px] tracking-tight leading-none" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                Compras
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 font-public-sans text-[13px] tracking-tight leading-none" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                Kardex
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 font-public-sans text-[13px] tracking-tight leading-none" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+                Caja
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors duration-100 font-public-sans text-[13px] tracking-tight leading-none" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+                Reportes
+            </a>
+</nav>
+<div class="px-3 mb-6 space-y-4">
+<button class="w-full bg-emerald-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-emerald-800 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                New Sale (F2)
+            </button>
+<div class="pt-4 border-t border-slate-100">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-emerald-700 transition-colors font-public-sans text-[13px]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Configuración
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-error transition-colors font-public-sans text-[13px]" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Cerrar Sesión
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="h-14 flex items-center justify-between px-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 z-30">
+<div class="flex items-center gap-8">
+<div class="relative flex items-center group">
+<span class="material-symbols-outlined absolute left-3 text-slate-400" data-icon="search">search</span>
+<input class="w-[400px] pl-10 pr-4 py-1.5 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-body-sm focus:ring-2 focus:ring-emerald-500 transition-all outline-none" placeholder="Buscar por Nombre / SKU / Principio Activo..." type="text"/>
+<div class="absolute right-2 px-1.5 py-0.5 bg-white border border-slate-200 rounded text-[10px] text-slate-400 font-bold uppercase">F1</div>
+</div>
+<nav class="flex gap-6">
+<a class="font-public-sans text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 border-b-2 border-emerald-600 pb-2" href="#">Ventas</a>
+<a class="font-public-sans text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 pb-2" href="#">Recetas</a>
+<a class="font-public-sans text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 pb-2" href="#">Alertas</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-end mr-4">
+<span class="text-[10px] font-bold text-emerald-700 uppercase leading-none">Turno: Mañana</span>
+<span class="text-[12px] text-slate-500">Caja 01 - Farmacéutico de Turno</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:bg-slate-100 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<button class="px-4 py-1.5 bg-on-secondary-container text-white text-[12px] font-bold uppercase tracking-wide rounded-lg hover:brightness-110 transition-all active:scale-95">
+                    Abrir Caja
+                </button>
+</div>
+</header>
+<!-- POS Workspace -->
+<div class="flex-1 flex overflow-hidden p-gutter gap-stack-gap bg-surface-container-low">
+<!-- Left Panel: Product Catalog -->
+<div class="w-1/4 flex flex-col gap-stack-gap">
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col overflow-hidden h-full">
+<h3 class="font-label-bold text-slate-900 mb-3 flex items-center gap-2 uppercase tracking-tight">
+<span class="material-symbols-outlined text-emerald-600" data-icon="medication">medication</span>
+                        Catálogo de Productos
+                    </h3>
+<div class="flex gap-2 mb-4">
+<button class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-[11px] font-bold rounded-lg uppercase">Todo</button>
+<button class="px-3 py-1.5 bg-slate-100 text-slate-500 text-[11px] font-bold rounded-lg uppercase hover:bg-slate-200">OTC</button>
+<button class="px-3 py-1.5 bg-slate-100 text-slate-500 text-[11px] font-bold rounded-lg uppercase hover:bg-slate-200">Receta</button>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar space-y-2">
+<!-- Product Card 1 -->
+<div class="p-3 border border-slate-100 rounded-lg hover:border-emerald-200 hover:bg-emerald-50/50 cursor-pointer transition-all group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-data-mono text-[11px] text-slate-400">SKU-40293</span>
+<span class="bg-orange-100 text-orange-700 text-[9px] font-black px-1.5 py-0.5 rounded uppercase">Bajo Stock</span>
+</div>
+<h4 class="font-label-bold text-slate-800 group-hover:text-emerald-700">Paracetamol 500mg</h4>
+<p class="text-[12px] text-slate-500 italic mb-2">Caja x 20 Tabletas</p>
+<div class="flex justify-between items-end">
+<span class="text-headline-md text-emerald-700">S/ 12.50</span>
+<span class="text-[11px] font-bold text-slate-400">Stock: 14</span>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="p-3 border border-slate-100 rounded-lg hover:border-emerald-200 hover:bg-emerald-50/50 cursor-pointer transition-all group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-data-mono text-[11px] text-slate-400">SKU-11029</span>
+<span class="bg-blue-100 text-blue-700 text-[9px] font-black px-1.5 py-0.5 rounded uppercase">Receta Médica</span>
+</div>
+<h4 class="font-label-bold text-slate-800 group-hover:text-emerald-700">Amoxicilina 875mg</h4>
+<p class="text-[12px] text-slate-500 italic mb-2">Blister x 10 Cápsulas</p>
+<div class="flex justify-between items-end">
+<span class="text-headline-md text-emerald-700">S/ 24.00</span>
+<span class="text-[11px] font-bold text-slate-400">Stock: 42</span>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="p-3 border border-slate-100 rounded-lg hover:border-emerald-200 hover:bg-emerald-50/50 cursor-pointer transition-all group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-data-mono text-[11px] text-slate-400">SKU-88273</span>
+</div>
+<h4 class="font-label-bold text-slate-800 group-hover:text-emerald-700">Ibuprofeno 400mg</h4>
+<p class="text-[12px] text-slate-500 italic mb-2">Genfar - Tabletas</p>
+<div class="flex justify-between items-end">
+<span class="text-headline-md text-emerald-700">S/ 8.20</span>
+<span class="text-[11px] font-bold text-slate-400">Stock: 120</span>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="p-3 border border-slate-100 rounded-lg hover:border-emerald-200 hover:bg-emerald-50/50 cursor-pointer transition-all group">
+<div class="flex justify-between items-start mb-1">
+<span class="text-data-mono text-[11px] text-slate-400">SKU-99021</span>
+</div>
+<h4 class="font-label-bold text-slate-800 group-hover:text-emerald-700">Loratadina 10mg</h4>
+<p class="text-[12px] text-slate-500 italic mb-2">Antihistamínico - Caja x 30</p>
+<div class="flex justify-between items-end">
+<span class="text-headline-md text-emerald-700">S/ 15.00</span>
+<span class="text-[11px] font-bold text-slate-400">Stock: 55</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Center Panel: Cart -->
+<div class="flex-1 flex flex-col gap-stack-gap">
+<!-- Shopping Cart Table Container -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col flex-1 overflow-hidden">
+<div class="p-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400" data-icon="shopping_basket">shopping_basket</span>
+<h3 class="font-headline-md text-slate-900">Carrito de Venta</h3>
+<span class="bg-emerald-600 text-white text-[12px] font-bold px-2 py-0.5 rounded-full">3 Items</span>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-slate-400 hover:text-error transition-colors rounded-lg hover:bg-error/10">
+<span class="material-symbols-outlined" data-icon="delete_sweep">delete_sweep</span>
+</button>
+</div>
+</div>
+<div class="flex-1 overflow-auto">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-slate-50 border-b border-slate-200 z-10">
+<tr>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider w-24">Código</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider">Nombre del Producto</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center w-24">Cantidad</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right w-24">Unitario</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right w-24">Desc. %</th>
+<th class="px-cell-padding-h py-cell-padding-v text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right w-28">Subtotal</th>
+<th class="px-cell-padding-h py-cell-padding-v w-12"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-4 font-data-mono text-[13px] text-slate-500">40293</td>
+<td class="px-cell-padding-h py-4">
+<p class="font-label-bold text-slate-900 leading-none">Paracetamol 500mg</p>
+<p class="text-[11px] text-slate-400 mt-1">Caja x 20 Tabletas</p>
+</td>
+<td class="px-cell-padding-h py-4">
+<div class="flex items-center justify-center gap-2">
+<button class="w-6 h-6 rounded bg-slate-100 flex items-center justify-center hover:bg-slate-200">-</button>
+<input class="w-8 text-center text-body-sm font-bold border-none focus:ring-0 p-0" type="text" value="2"/>
+<button class="w-6 h-6 rounded bg-slate-100 flex items-center justify-center hover:bg-slate-200">+</button>
+</div>
+</td>
+<td class="px-cell-padding-h py-4 text-right font-data-mono">12.50</td>
+<td class="px-cell-padding-h py-4 text-right font-data-mono text-emerald-600">0.00</td>
+<td class="px-cell-padding-h py-4 text-right font-bold text-slate-900">S/ 25.00</td>
+<td class="px-cell-padding-h py-4 text-center">
+<button class="text-slate-300 hover:text-error"><span class="material-symbols-outlined text-[18px]" data-icon="close">close</span></button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors bg-blue-50/30">
+<td class="px-cell-padding-h py-4 font-data-mono text-[13px] text-slate-500">11029</td>
+<td class="px-cell-padding-h py-4">
+<div class="flex items-center gap-2">
+<p class="font-label-bold text-slate-900 leading-none">Amoxicilina 875mg</p>
+<span class="material-symbols-outlined text-[14px] text-blue-500" data-icon="description" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<p class="text-[11px] text-slate-400 mt-1">Blister x 10 Cápsulas</p>
+</td>
+<td class="px-cell-padding-h py-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="w-6 h-6 rounded bg-slate-100 flex items-center justify-center hover:bg-slate-200">-</button>
+<input class="w-8 text-center text-body-sm font-bold border-none focus:ring-0 p-0" type="text" value="1"/>
+<button class="w-6 h-6 rounded bg-slate-100 flex items-center justify-center hover:bg-slate-200">+</button>
+</div>
+</td>
+<td class="px-cell-padding-h py-4 text-right font-data-mono">24.00</td>
+<td class="px-cell-padding-h py-4 text-right font-data-mono text-emerald-600">5.00</td>
+<td class="px-cell-padding-h py-4 text-right font-bold text-slate-900">S/ 22.80</td>
+<td class="px-cell-padding-h py-4 text-center">
+<button class="text-slate-300 hover:text-error"><span class="material-symbols-outlined text-[18px]" data-icon="close">close</span></button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-cell-padding-h py-4 font-data-mono text-[13px] text-slate-500">88273</td>
+<td class="px-cell-padding-h py-4">
+<p class="font-label-bold text-slate-900 leading-none">Ibuprofeno 400mg</p>
+<p class="text-[11px] text-slate-400 mt-1">Genfar - Tabletas</p>
+</td>
+<td class="px-cell-padding-h py-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="w-6 h-6 rounded bg-slate-100 flex items-center justify-center hover:bg-slate-200">-</button>
+<input class="w-8 text-center text-body-sm font-bold border-none focus:ring-0 p-0" type="text" value="3"/>
+<button class="w-6 h-6 rounded bg-slate-100 flex items-center justify-center hover:bg-slate-200">+</button>
+</div>
+</td>
+<td class="px-cell-padding-h py-4 text-right font-data-mono">8.20</td>
+<td class="px-cell-padding-h py-4 text-right font-data-mono text-emerald-600">0.00</td>
+<td class="px-cell-padding-h py-4 text-right font-bold text-slate-900">S/ 24.60</td>
+<td class="px-cell-padding-h py-4 text-center">
+<button class="text-slate-300 hover:text-error"><span class="material-symbols-outlined text-[18px]" data-icon="close">close</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Keyboard Shortcuts Footer Bar -->
+<div class="p-3 bg-slate-900 text-white flex items-center gap-6 overflow-x-auto">
+<div class="flex items-center gap-2 shrink-0">
+<kbd class="bg-slate-700 px-1.5 py-0.5 rounded text-[10px] font-bold border border-slate-600">F2</kbd>
+<span class="text-[11px] font-medium uppercase tracking-tight text-slate-400">Nueva Venta</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<kbd class="bg-slate-700 px-1.5 py-0.5 rounded text-[10px] font-bold border border-slate-600">F4</kbd>
+<span class="text-[11px] font-medium uppercase tracking-tight text-slate-400">Buscar Cliente</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<kbd class="bg-slate-700 px-1.5 py-0.5 rounded text-[10px] font-bold border border-slate-600">F8</kbd>
+<span class="text-[11px] font-medium uppercase tracking-tight text-slate-400">Aplicar Descuento</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<kbd class="bg-emerald-600 px-1.5 py-0.5 rounded text-[10px] font-bold border border-emerald-500">F10</kbd>
+<span class="text-[11px] font-medium uppercase tracking-tight text-white">Cobrar</span>
+</div>
+</div>
+</div>
+<!-- Prescription Field Highlighted -->
+<div class="bg-secondary-container/20 border-2 border-dashed border-secondary-container rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-on-secondary-container text-white p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="description" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div>
+<label class="block text-[11px] font-black text-secondary-container uppercase tracking-widest">ID de Receta Médica</label>
+<input class="bg-transparent border-none p-0 text-headline-md text-on-secondary-container placeholder:text-secondary-container/50 focus:ring-0 w-80 font-bold" placeholder="Escanee o ingrese ID de receta..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-secondary-container rounded-lg text-white font-bold text-xs">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                        VERIFICACIÓN AUTOMÁTICA ACTIVA
+                    </div>
+</div>
+</div>
+<!-- Right Panel: Summary & Payment -->
+<div class="w-1/4 flex flex-col gap-stack-gap">
+<!-- Customer Section -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
+<h3 class="font-label-bold text-slate-900 mb-3 flex items-center gap-2 uppercase tracking-tight">
+<span class="material-symbols-outlined text-emerald-600" data-icon="person">person</span>
+                        Datos del Cliente
+                    </h3>
+<div class="space-y-3">
+<div class="p-3 bg-slate-50 rounded-lg flex items-center justify-between">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase leading-none">DNI / RUC</p>
+<p class="font-bold text-slate-800">45902188</p>
+</div>
+<button class="text-emerald-700 font-bold text-xs">Cambiar</button>
+</div>
+<p class="font-label-bold text-slate-900">JUAN PÉREZ RODRÍGUEZ</p>
+</div>
+</div>
+<!-- Summary Section -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex-1 flex flex-col">
+<h3 class="font-label-bold text-slate-900 mb-6 flex items-center gap-2 uppercase tracking-tight">
+<span class="material-symbols-outlined text-emerald-600" data-icon="receipt_long">receipt_long</span>
+                        Resumen de Venta
+                    </h3>
+<div class="space-y-4 flex-1">
+<div class="flex justify-between items-center text-body-sm text-slate-500">
+<span>Subtotal</span>
+<span class="font-data-mono">S/ 73.60</span>
+</div>
+<div class="flex justify-between items-center text-body-sm text-emerald-600">
+<span>Descuento Aplicado</span>
+<span class="font-data-mono">- S/ 1.20</span>
+</div>
+<div class="flex justify-between items-center text-body-sm text-slate-500">
+<span>Impuestos (IGV 18%)</span>
+<span class="font-data-mono">S/ 13.03</span>
+</div>
+<div class="pt-4 border-t border-slate-100 mt-4">
+<p class="text-[11px] font-bold text-slate-400 uppercase mb-1">Total a Pagar</p>
+<p class="text-[40px] font-black text-slate-900 leading-none tracking-tighter">S/ 72.40</p>
+</div>
+<div class="pt-6 space-y-3">
+<p class="text-[11px] font-bold text-slate-400 uppercase">Método de Pago</p>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex flex-col items-center justify-center gap-2 p-3 border-2 border-emerald-600 bg-emerald-50 rounded-xl transition-all">
+<span class="material-symbols-outlined text-emerald-700" data-icon="payments">payments</span>
+<span class="text-[11px] font-bold text-emerald-800">EFECTIVO</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-3 border-2 border-slate-100 hover:border-slate-300 rounded-xl transition-all">
+<span class="material-symbols-outlined text-slate-400" data-icon="credit_card">credit_card</span>
+<span class="text-[11px] font-bold text-slate-600">TARJETA</span>
+</button>
+</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-lg">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[11px] font-bold text-slate-400 uppercase">Efectivo Recibido</span>
+<span class="text-[10px] text-slate-300 font-bold uppercase">CTRL + E</span>
+</div>
+<input class="w-full bg-transparent border-none p-0 text-headline-md text-slate-900 font-bold focus:ring-0" type="text" value="100.00"/>
+</div>
+<div class="p-3 bg-emerald-50 rounded-lg flex justify-between items-center">
+<span class="text-[11px] font-bold text-emerald-800 uppercase">Vuelto</span>
+<span class="text-headline-md font-black text-emerald-800">S/ 27.60</span>
+</div>
+</div>
+<button class="w-full bg-emerald-700 text-white font-black py-4 rounded-xl text-xl uppercase tracking-widest shadow-lg shadow-emerald-900/20 hover:bg-emerald-800 active:scale-95 transition-all mt-6 flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-[28px]" data-icon="point_of_sale" style="font-variation-settings: 'FILL' 1;">point_of_sale</span>
+                        COBRAR
+                    </button>
+<p class="text-center text-[10px] text-slate-400 font-bold mt-2 uppercase">Presione F10 para completar</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Overlay Alert (Toast Simulation) -->
+<div class="fixed top-20 right-6 z-50 animate-bounce-in">
+<div class="bg-white border-l-4 border-orange-500 shadow-xl p-4 flex items-center gap-4 rounded-lg">
+<div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 text-sm">Stock Crítico: Paracetamol</p>
+<p class="text-slate-500 text-xs">Quedan menos de 15 unidades en inventario.</p>
+</div>
+<button class="text-slate-300 hover:text-slate-500 ml-4">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</body></html>

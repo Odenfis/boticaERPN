@@ -1,0 +1,20 @@
+services:
+  app:
+    build: .
+    env_file:
+      - ${BOTICA_ENV_FILE:-.env}
+    environment:
+      NODE_ENV: production
+      PORT_APP: "3000"
+    ports:
+      - "127.0.0.1:${BOTICA_HOST_PORT:-3000}:3000"
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/api/health').then(async response => process.exit(response.ok && (await response.json()).connected === true ? 0 : 1)).catch(() => process.exit(1))"
+      interval: 15s
+      timeout: 20s
+      retries: 3
+      start_period: 15s

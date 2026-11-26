@@ -1,5 +1,11 @@
 # Avances del proyecto
 
+## 2026-11-26 · Docker Compose para Windows
+
+- Se agregó una imagen de producción para el frontend y el backend, con un servicio de Compose publicado solo en localhost y una plantilla para conectar a SQL Server 2022 en Windows.
+- Se verificó en Docker Desktop para Mac que la imagen compila, sirve el frontend y sus recursos, corre con un usuario sin privilegios y alcanza el estado `healthy` al conectarse a la base de demostración mediante `host.docker.internal`. Se confirmaron las dos migraciones con una consulta de lectura.
+- Pasaron la comprobación de tipos y las 8 pruebas automatizadas. Se documentó la instalación, inicialización y prueba operativa en Windows.
+
 ## 2026-11-26 · Arranque local
 
 - Se actualizó la configuración de Vite para que funcione con su cargador nativo y se eliminó la segunda carga de `.env` durante el arranque.
